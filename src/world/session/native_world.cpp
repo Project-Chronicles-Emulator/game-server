@@ -1813,6 +1813,16 @@ private:
       auto overworld_map = state_->npc_feature.population()
                                ? std::optional<int>(state_->npc_feature.population()->map_id())
                                : std::nullopt;
+      if (!housing_entry && !followup_data && character->world_position &&
+          state_->map_channels) {
+        if (const auto region =
+                state_->map_channels->region_map_for(*character->world_position)) {
+          // Preserve the saved coordinates and progression while selecting the population
+          // of the authored region that actually contains this reconnect position.
+          character->world_position->map_id = *region;
+          overworld_map = *region;
+        }
+      }
       if (housing_entry) {
         overworld_map = housing_entry->map_id;
       } else if (character->world_position &&

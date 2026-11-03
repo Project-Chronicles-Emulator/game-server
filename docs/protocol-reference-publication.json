@@ -2,9 +2,9 @@
   "page_id": "page_d76bbd1a8b988191a91ed6afa2af9adf",
   "url": "https://chatgpt.com/space/page_d76bbd1a8b988191a91ed6afa2af9adf",
   "document": "docs/protocol-feature-reference.md",
-  "document_sha256": "102de53da9516c4d4305bf3d797482e08617cd123e89ace8b9990848b1a4c43a",
-  "verified_at_utc": "2026-11-03T15:19:52Z",
-  "verification": "All eight complete child Pages read back; their 4726 nonblank lines match the complete canonical document in order after whitespace normalization. Normal progression is the default; the graduation kit requires explicit operator opt-in. Verification remains separated from original-client acceptance. Existing root index links and part identities are unchanged.",
+  "document_sha256": "c0418adc315034ae7eda4063e5692825b9e9f7f7d220b31611c81f5c4949d1c5",
+  "verified_at_utc": "2026-11-03T15:37:17Z",
+  "verification": "All eight complete child Pages read back; their 4729 nonblank lines match the complete canonical document in order after whitespace normalization. The global audit distinguishes 151 candidate maps with some population definitions from 47 remaining empty entries. Generic region recovery and synthetic all-population checks are separate from the user-confirmed Wayfaring Camp result and unverified all-region gameplay. Existing root index links and identities are unchanged.",
   "sharing": "Private; existing account access only.",
   "pending_source_reviews": [],
   "parts": [
@@ -27,7 +27,7 @@
       "url": "https://chatgpt.com/space/page_664fea9a01fc8191bdd575e7d833e8c5",
       "title": "Project Chronicles world population and combat",
       "first_heading": "## World population, visibility and NPC AI",
-      "verified_blocks": 355
+      "verified_blocks": 358
     },
     {
       "page_id": "page_fb3e2e5b83c4819185e8a0e547dacff5",

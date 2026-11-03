@@ -52,7 +52,8 @@ public:
   // The public field channel (authored Map.area of an ungated zone field) that contains an
   // open-world destination, when the destination names the main world map or a public field
   // whose own area does not contain it. A teleport then loads that region's channel (its NPCs,
-  // monsters and services). Instances and other maps keep their identity: nullopt. With
+  // monsters and services). A nested field outside its area may return to its authored public
+  // parent if no exit condition applies. Instances and other maps keep their identity: nullopt. With
   // `keep_public_channel` only the main world map is routed; a named public field is kept.
   std::optional<int> region_map_for(const WorldPosition &destination,
                                     bool keep_public_channel = false) const;
@@ -92,6 +93,7 @@ private:
   std::map<int, ZoneMap> zone_maps_;
   std::map<std::pair<int, int>, SpatialCell> spatial_channels_;
   std::map<int, RegionArea> region_areas_;
+  std::map<int, RegionArea> nested_field_areas_;
   std::vector<Boundary> boundaries_;
 };
 

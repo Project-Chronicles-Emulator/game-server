@@ -188,9 +188,13 @@ MapChannels::MapChannels(const Json &document, const std::vector<Json> &map_rows
     }
     // The same public zone channels as tools/build_zone_channels.py: an ungated top-level
     // ArcheWorld field with a zone key and an authored area.
-    if (supported && type == "Field" && row.value("parentMapId", std::string{}).empty() &&
-        !row.value("FK_zoneKey", std::string{}).empty() &&
-        !row.value("area", std::string{}).empty()) {
+    const bool public_region = supported && type == "Field" &&
+                               row.value("parentMapId", std::string{}).empty() &&
+                               !row.value("FK_zoneKey", std::string{}).empty();
+    const bool nested_field = archeworld && type == "Field" &&
+                              !row.value("parentMapId", std::string{}).empty() &&
+                              row.value("FK_exitConditionId", std::string{}).empty();
+    if ((public_region || nested_field) && !row.value("area", std::string{}).empty()) {
       const auto area = Json::parse("{" + row.at("area").get<std::string>() + "}");
       RegionArea region;
       region.min_cm = {number(area.at("min").at("x")), number(area.at("min").at("y"))};
@@ -198,7 +202,11 @@ MapChannels::MapChannels(const Json &document, const std::vector<Json> &map_rows
       if (region.min_cm[0] > region.max_cm[0] || region.min_cm[1] > region.max_cm[1]) {
         throw std::runtime_error("Inverted public map area");
       }
-      region_areas_.emplace(map_id, region);
+      if (public_region) {
+        region_areas_.emplace(map_id, region);
+      } else {
+        nested_field_areas_.emplace(map_id, region);
+      }
     }
   }
 
@@ -318,6 +326,17 @@ std::optional<int> MapChannels::region_map_for(const WorldPosition &destination,
 
   const auto requested = region_areas_.find(destination.map_id);
   if (destination.map_id != kMainWorldMapId && requested == region_areas_.end()) {
+    // A saved position can outlive a missed child-channel exit. Return only to its
+    // authored, ungated public parent; never infer entry into another instance or gate.
+    const auto child_area = nested_field_areas_.find(destination.map_id);
+    const auto *child = zone_map(destination.map_id);
+    if (child_area != nested_field_areas_.end() && child &&
+        !child_area->second.contains(destination)) {
+      const auto parent = region_areas_.find(child->parent_map_id);
+      if (parent != region_areas_.end() && parent->second.contains(destination)) {
+        return child->parent_map_id;
+      }
+    }
     return std::nullopt;
   }
   if (requested != region_areas_.end() && requested->second.contains(destination)) {

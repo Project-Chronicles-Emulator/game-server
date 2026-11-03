@@ -41,7 +41,8 @@ $generatorNames = @(
     'build_stationary_npc_placements.py', 'build_world_mobs.py', 'build_zone_channels.py',
     'tutorial_interactions.py', 'tutorial_level_triggers.py', 'tutorial_quests.py',
     'tutorial_spawns.py', 'npc_patrol_data.py', 'world_layers.py', 'protocol_schema.py',
-    'export_protocol_schema.py'
+    'export_protocol_schema.py',
+    'audit_world_populations.py'
 )
 foreach ($name in $generatorNames) {
     Copy-Required "tools/$name" "$package/tools"

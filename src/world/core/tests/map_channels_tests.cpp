@@ -325,6 +325,24 @@ TEST(MapChannels, TeleportDestinationsUseTheRegionChannelOnlyForOpenWorldMaps) {
   EXPECT_FALSE(channels.region_map_for(nowhere));
 }
 
+TEST(MapChannels, NestedFieldOutsideItsAreaReturnsToItsAuthoredParent) {
+  auto rows = region_rows();
+  auto child = zone_field(9011, "", -165000, 295000, -133000, 319000);
+  child["parentMapId"] = "9012";
+  child["FK_enteranceConditionId"] = "9000";
+  rows.push_back(child);
+  const MapChannels channels(document(Json::array()), rows);
+
+  EXPECT_EQ(channels.region_map_for({9011, -1241193, 2978441, -646328, 0}), 9012);
+  EXPECT_FALSE(channels.region_map_for({9011, -1500000, 3000000, -646328, 0}));
+  EXPECT_FALSE(channels.region_map_for({9011, -6000000, 3000000, -646328, 0}));
+  EXPECT_FALSE(channels.region_map_for({9011, -1241193, 2978441, -646328, 0}, true));
+
+  rows.back()["FK_exitConditionId"] = "9001";
+  const MapChannels gated_exit(document(Json::array()), rows);
+  EXPECT_FALSE(gated_exit.region_map_for({9011, -1241193, 2978441, -646328, 0}));
+}
+
 TEST(MapChannels, SpatialMasksRejectMalformedOrAmbiguousDefinitions) {
   auto spatial = spatial_grid();
   spatial["grids"][0]["mask"] = "100";

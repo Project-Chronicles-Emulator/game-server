@@ -315,6 +315,38 @@ TEST(NpcPopulation, TheFullPlacementFileOfMap9012LoadsWhenPresent) {
   EXPECT_EQ(announced->npc_template_id, 1001121);
 }
 
+TEST(NpcPopulation, EveryGeneratedMapRegistersAndEncodesItsActiveCivilianPopulation) {
+  const char *directory = std::getenv("CHRONICLES_NPC_POPULATION_DIRECTORY");
+  if (!directory) {
+    GTEST_SKIP() << "Set CHRONICLES_NPC_POPULATION_DIRECTORY to generated npc/placements";
+  }
+
+  constexpr std::size_t maximum_units = 4096;
+  Protocol protocol(CHRONICLES_PROTOCOL_DIR);
+  std::size_t checked_maps = 0;
+  for (const auto &entry : std::filesystem::directory_iterator(directory)) {
+    if (!entry.is_regular_file() || entry.path().extension() != ".json" ||
+        !entry.path().filename().string().starts_with("map-")) {
+      continue;
+    }
+
+    SCOPED_TRACE(entry.path().filename().string());
+    const auto population = load_npc_population_file(entry.path(), maximum_units);
+    UnitRegistry registry(maximum_units);
+    const auto result = population->announce_to(registry, "generated-map-check");
+    EXPECT_EQ(result.added, population->units().size());
+    EXPECT_EQ(result.rejected, 0U);
+    EXPECT_EQ(result.collisions, 0U);
+    const auto packets = population->unit_added_packets();
+    EXPECT_EQ(packets.size(), population->units().size());
+    for (const auto &packet : packets) {
+      EXPECT_NO_THROW(protocol.encode(packet.opcode, packet.message));
+    }
+    ++checked_maps;
+  }
+  EXPECT_GT(checked_maps, 1U);
+}
+
 // Identity of one placement in the file: template, position and the placement guid wire halves.
 using PlacementKey = std::tuple<int, int, int, int, std::uint64_t, std::uint64_t>;
 
