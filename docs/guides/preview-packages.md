@@ -104,6 +104,14 @@ keyboard shortcuts. Confirm health/stamina and a successful weapon action after
 world entry. Numbered item shortcuts may be empty until items are assigned.
 A loaded backdrop alone is not a successful gameplay test.
 
+If a test character entered before the catalog/tutorial data was loaded, it may
+have passed the initial quest trigger without accepting the main tutorial quest.
+A later gate can then show **No quest in progress** even with all required data
+present. Return that character to the tutorial start using the admin's offline
+position editor, preserving items and quest progress, then reconnect and follow
+the main quest from its first trigger. Alternatively, use a new test character.
+Do not bypass the gate's quest checks or grant completion to hide this state.
+
 ## 4. Admin
 
 ```powershell
