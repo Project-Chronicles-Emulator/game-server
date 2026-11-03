@@ -1,0 +1,70 @@
+{
+  "method": "Targeted static analysis of the demo client in IDA; cached pseudocode under dumps/native_ws_research",
+  "image_base": "0x140000000",
+  "runtime_front_flow_verified": true,
+  "runtime_verification_source": "Root session observed the original client creating and selecting a character on 2026-10-23",
+  "world_enter_granted": {
+    "handler": "0x14616a6e0",
+    "result_case": 3,
+    "front_address_storage": "AuthMgr + 240",
+    "list_send_call": "0x14616a91c",
+    "list_sender": "0x1461740e0",
+    "request_opcode": 20001,
+    "conclusion": "The client initiates CharListReq after receiving WorldEnterRes.Granted, before an unsolicited front response."
+  },
+  "front_connected": {
+    "connection_function": "0x146174530",
+    "socket_event_vtable_offset": 56,
+    "delegate_vtable": "0x14a81fa68",
+    "delegate_invoke": "0x146175460",
+    "callback": "0x1461739f0",
+    "effects": ["Posts internal connection event 3", "Posts a UI status event"],
+    "native_application_send_in_callback": false
+  },
+  "character_list_success": {
+    "handler": "0x146175d90",
+    "native_response_opcode": 6,
+    "decoded_object_offsets": {
+      "character_list": 40,
+      "site_name": 56,
+      "error_code": 64,
+      "character_creation_restricted": 68
+    },
+    "effects": ["Imports character models", "Sets the site and creation restriction", "Updates lobby presentation and UI state"],
+    "presentation_helper_root": "0x145f15b70",
+    "additional_mandatory_startup_rpc": "None identified in the traced normal completion branches and presentation helpers"
+  },
+  "later_character_actions": {
+    "dispatcher": "0x145f15c80",
+    "cases": {"1": "Character creation", "2": "Deletion-related action", "3": "Character selection"},
+    "select_sender": "0x146174270",
+    "select_request_opcode": 20007,
+    "optional_refresh": "Non-selection actions can request another CharListReq"
+  },
+  "feature_matrix_notification": {
+    "handler": "0x146176be0",
+    "native_notification_opcode": 5,
+    "effect": "Consumes and applies settings",
+    "acknowledgement_in_traced_handler": false
+  },
+  "observed_optional_friend_list": {
+    "request": "WSC2F_FriendListReq",
+    "request_opcode": 20024,
+    "request_schema": "x5.pb.ws.front.FriendListReq",
+    "request_fields": "optional bool recommend = 1",
+    "request_payload_bytes": 2,
+    "response": "WSF2C_FriendListRes",
+    "response_opcode": 28,
+    "response_schema": "x5.pb.frontwebsocket.FriendListRes",
+    "response_fields": "optional bool recommend = 1; repeated x5.pb.FriendInfo friends = 2; no error-code field",
+    "request_id_getter": "0x145eaece0",
+    "response_id_getter": "0x1449ce4c0",
+    "initial_handler_plan": "Authenticate and require a selected world, return an empty friends list, preserve recommend presence and value, keep the socket open",
+    "empty_response_fixtures": {
+      "recommend_absent": "04001c00",
+      "recommend_false": "06001c000800",
+      "recommend_true": "06001c000801"
+    }
+  },
+  "limits": "Bounded static trace. Other account states, optional features, later actions and actual-client packets still require observation."
+}

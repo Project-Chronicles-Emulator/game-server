@@ -1,0 +1,17 @@
+{
+  "storage": "postgres",
+  "bind_address": "127.0.0.1",
+  "public_address": "http://127.0.0.1:8480",
+  "port": 8480,
+  "native_client": "local",
+  "native_require_launch_grant": true,
+  "world_port": 8481,
+  "world_advertised_host": "127.0.0.1",
+  "world_name": "Project Chronicles Private Server",
+  "world_capacity": 500,
+  "tls_cert": "certs/world.pem",
+  "tls_key": "certs/world.key",
+  "protocol_dir": "protocol",
+  "patch_dir": "releases",
+  "patch_public_key": "REPLACE_WITH_THE_RELEASE_SIGNING_PUBLIC_KEY"
+}

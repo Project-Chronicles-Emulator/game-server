@@ -1,0 +1,9 @@
+{
+  "id": "discord",
+  "title": "Join our Discord",
+  "summary": "Meet the community, follow project updates, and share your adventures.",
+  "type": "discord",
+  "url": "https://discord.com/",
+  "sort_order": 0,
+  "published": false
+}

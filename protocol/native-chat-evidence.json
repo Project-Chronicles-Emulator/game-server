@@ -1,0 +1,134 @@
+{
+  "build_id": "40367e24241c9481bfc07fbf9ef1919f25fb0eaa",
+  "input_sha256": "e4002be7746485ba5e789c8ac798f48dce016d165e07c0e93e4e4e8e4fd693b6",
+  "image_base": "0x140000000",
+  "front_path": "/ws/front",
+  "front_authentication": "Authorization bearer header",
+  "front_socket_context_offset": 6288,
+  "channel_routing": [
+    {
+      "type": 1,
+      "channel": "Local",
+      "transport": "front_websocket",
+      "request_id": 20008
+    },
+    {
+      "type": 2,
+      "channel": "World",
+      "transport": "front_websocket",
+      "request_id": 20008
+    },
+    {
+      "type": 3,
+      "channel": "Company",
+      "transport": "front_websocket",
+      "request_id": 20008
+    },
+    {
+      "type": 4,
+      "channel": "Guild",
+      "transport": "front_websocket",
+      "request_id": 20008
+    },
+    {
+      "type": 5,
+      "channel": "Party",
+      "transport": "world",
+      "request_id": 20038
+    },
+    {
+      "type": 6,
+      "channel": "Whisper",
+      "transport": "front_websocket",
+      "request_id": 20009
+    }
+  ],
+  "front_notifications": {
+    "ChatNoti": 13,
+    "DirectMessageRes": 14,
+    "DirectMessageNoti": 15,
+    "CommonErrorRes": 1
+  },
+  "world_notifications": {
+    "SendChatNoti": 75
+  },
+  "confidence": "static_verified",
+  "functions": [
+    {
+      "address": "0x146174530",
+      "rva": "0x6174530",
+      "previous_name": "sub_146174530",
+      "proposed_name": "AAC_FrontWebSocket_ConnectWithBearer",
+      "end": "0x146174f23",
+      "byte_sha256": "a03f7d5fd9d6c20a65eb48ebaffb4fac7e6cc96d6463e7110fd5c99921cb5044",
+      "fingerprint_scope": "First 32 IDB bytes; full main function extent recorded separately",
+      "evidence": "Derives ws/wss from the front REST base; appends /ws/front, adds Authorization bearer header, and stores the socket at context +6288. String anchors and raw-message delegate establish front transport; this does not prove a separate host.",
+      "cache_path": "dumps/ida_research/chat-20261024/pseudocode/0x146174530_0x146174530.c"
+    },
+    {
+      "address": "0x146173ec0",
+      "rva": "0x6173ec0",
+      "previous_name": "X5_FrontWebSocket_DecodeFrames",
+      "proposed_name": "AAC_FrontWebSocket_DecodeAndDispatchFrames",
+      "end": "0x14617405e",
+      "byte_sha256": "bc5dbda2472c4a088d7a648cf06c6a17254259d2c40c80df259f938d02d20634",
+      "fingerprint_scope": "First 32 IDB bytes; full main function extent recorded separately",
+      "evidence": "Reads uint16 total length and packet ID; payload begins at +4. IDs below 65 select registered decoder and handler tables. Zero frame length invokes socket close. Existing X5_FrontWebSocket_DecodeFrames name is preserved as meaningful.",
+      "cache_path": "dumps/ida_research/chat-20261024/pseudocode/0x146173ec0_0x146173ec0.c"
+    },
+    {
+      "address": "0x145e79a40",
+      "rva": "0x5e79a40",
+      "previous_name": "sub_145E79A40",
+      "proposed_name": "AAC_Chat_SendByChannelTransport",
+      "end": "0x145e79d2d",
+      "byte_sha256": "58f841b7b31e5598fe4f805a999f7b492a557eeb93d547ef3455626de9f0ce5b",
+      "fingerprint_scope": "First 32 IDB bytes; full main function extent recorded separately",
+      "evidence": "Message types 1 Local, 2 World, 3 Company, 4 Guild serialize x5.pb.ws.front.ChatReq and send binary packet 20008 over context +6288 front WebSocket. Type 5 Party builds x5.pb.SendChatReq and calls the world sender instead. Anchors: vtables 14A78D5F0 and 14A78D580, enum EX5ChatMessageType. Server audience rules are unresolved.",
+      "cache_path": "dumps/ida_research/chat-20261024/pseudocode/0x145e79a40_0x145e79a40.c"
+    },
+    {
+      "address": "0x145e7a990",
+      "rva": "0x5e7a990",
+      "previous_name": "sub_145E7A990",
+      "proposed_name": "AAC_Chat_SendDirectMessageFrontRequest",
+      "end": "0x145e7ac4f",
+      "byte_sha256": "01867494aad32da261a72875368395dd55492d692124a7e1ac6a0c8fb18685c3",
+      "fingerprint_scope": "First 32 IDB bytes; full main function extent recorded separately",
+      "evidence": "Builds x5.pb.ws.front.DirectMessageReq. Cached destination chooses char_id; otherwise char_name; message string is serialized. Sends binary front WebSocket packet 20009 with four-byte native header. Server online/offline policy and persistence are unresolved.",
+      "cache_path": "dumps/ida_research/chat-20261024/pseudocode/0x145e7a990_0x145e7a990.c"
+    },
+    {
+      "address": "0x1461c4fc0",
+      "rva": "0x61c4fc0",
+      "previous_name": "sub_1461C4FC0",
+      "proposed_name": "AAC_FrontWebSocket_ChatNoti_CreateAndParse",
+      "end": "0x1461c50b4",
+      "byte_sha256": "3b6d5f8f843375873f905ef1a89d57214e29d33788aaba1cfd3a26991c839b9f",
+      "fingerprint_scope": "First 32 IDB bytes; full main function extent recorded separately",
+      "evidence": "Allocates wrapper with vtable 14A82AE80, constructs x5.pb.frontwebsocket.ChatNoti and parses input payload; registered in AAC_FrontWebSocket_RegisterMessageDecodersAndHandlers. Verified wrapper mapping gives ID13; fields type/message/sender_name come from recovered descriptor. UI rendering and server routing are not inferred.",
+      "cache_path": "dumps/ida_research/chat-20261024/pseudocode/0x1461c4fc0_0x1461c4fc0.c"
+    },
+    {
+      "address": "0x146174410",
+      "rva": "0x6174410",
+      "previous_name": "sub_146174410",
+      "proposed_name": "AAC_FrontWebSocket_CloseAndRelease",
+      "end": "0x14617452c",
+      "byte_sha256": "f070cb8c05e47a26f0a0c003103933b7294536309a6d5b84e6ea292456201fb1",
+      "fingerprint_scope": "First 32 IDB bytes; full main function extent recorded separately",
+      "evidence": "Clears connection state and delegates, invokes socket close with code1000 through the same socket member at +6288, and optionally releases the shared socket. Called from the front frame receiver on zero total length.",
+      "cache_path": "dumps/ida_research/chat-20261024/pseudocode/0x146174410_0x146174410.c"
+    }
+  ],
+  "database_save": {
+    "path": "D:/PROJETOS/Archeage Emulator/dumps/ArcheAgeChronicles.memdump.exe.i64",
+    "ok": true,
+    "verification": "stored-sections"
+  },
+  "limits": [
+    "No official front chat capture or original-client emulator acceptance test",
+    "A separate chat host/process is not established",
+    "Official audience, echo, case matching and offline delivery policies are not established"
+  ]
+}

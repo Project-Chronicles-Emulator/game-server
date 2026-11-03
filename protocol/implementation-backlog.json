@@ -1,0 +1,418 @@
+{
+  "format_version": 1,
+  "authorization": "Human standing order 2026-10-24; later human instructions and Manual Stop/Pause take precedence",
+  "policy": "docs/chronicles-team-standing-order.md",
+  "page_id": "page_d76bbd1a8b988191a91ed6afa2af9adf",
+  "catalog": "docs/protocol-packet-catalog.json",
+  "completion_requires": [
+    "entire scoped behavior implemented",
+    "independent review",
+    "reviewed commit pushed",
+    "reviewed running build verified",
+    "required original-client acceptance evidenced"
+  ],
+  "items": [
+    {
+      "id": "world-map-monsters",
+      "catalog_feature": "population",
+      "title": "Populate authored world maps with shared killable monsters",
+      "status": "in_progress",
+      "evidence": [
+        "2026-10-26 human request: implement full mobs across the world map.",
+        "Shared runtime and extraction added; 2802 slots across 106 populated maps, 470 patrols, 1893 actions. 765 uncaptured types use explicit custom fallback stats.",
+        "Missing source layers, conditional activation, phase scripts, navigation, official balance, independent review and original-client acceptance remain open. No push or live service replacement performed.",
+        "World-mob validation: Release server/main/event tests build. Selected CTest: 283 registered, 267 passed, 16 optional skips, zero failures; eight WorldMobs tests and all-map packet encoding/offensive memberships pass. The two real-catalog TLS checks cover public shared death, persisted EXP, killer-only loot, replay refusal and per-character Instance maps; TLS uses the documented child-process OPENSSL_ia32cap=0 diagnostic. Module/raid checks use normal dispatch. Python: 105 extraction/combat/patrol plus 11 reference cases pass. No full-suite, live deployment or original-client acceptance claim. See docs/world-mobs.md and VALIDATION.md."
+      ],
+      "blocked_reason": null
+    },
+    {
+      "id": "combat-cannot-use-skill",
+      "catalog_feature": "combat",
+      "title": "Fix original-client Cannot use this skill / unable to attack",
+      "status": "in_progress",
+      "evidence": [
+        "Candidate bootstrap sends catalog-derived Magic and Wild initial perks with observed Magic entry ordering; generated-profile TLS combat/pickup tests pass and full CTest records 156 passed, 12 skipped, 0 failed of 168.",
+        "Candidate is not deployed; original client must demonstrate contextual attack and accepted StartSkillReq against the reviewed running server before completion.",
+        "2026-10-26 local combat rework: range/cooldown-aware rotating NPC repertoire, free-aim and linear projectile targeting, unique event identity, impact splash and repeated cylinder/box area pulses; seven captures re-extracted and 2249 stage timing corrected. See docs/combat-rework-20261026.md for current checks. Not deployed; independent review and original-client visual acceptance remain pending."
+      ],
+      "blocked_reason": null
+    },
+    {
+      "id": "feature-combat",
+      "catalog_feature": "combat",
+      "title": "Combat, skill stages and damage",
+      "status": "in_progress",
+      "evidence": [
+        "SP shortage maps to Skill_Condition_NotEnoughCost per the observed official refusal for skill 1418; the CombatData NPC stat cap is 256 so the 173-entry profile loads; the Python generator validates its profile (44 tests, author-run).",
+        "Remaining: PvP, shared-world combat, area effects, status-effect application, projectile collision, full damage model and original-client acceptance beyond the HUMAN-confirmed Wild/starter-axe baseline f9d5d15b (13:51) stay open.",
+        "HUMAN-confirmed on baseline f9d5d15b: Wild/axe attacks and mob hits work in the original client; the mob does not fight back on the baseline. CANDIDATE NPC retaliation for tutorial monsters 5001084/5001083 from captured casts plus a native test and diagnostic log lines is implemented locally and not deployed; original-client retaliation acceptance is open.",
+        "CANDIDATE corpse removal (opcode 11, 11236 ms after death, capture median; 5000 ms catalog conflict and death-vs-loot anchor unresolved) with a native test. Quest persistence regression for Shadows of Memory is synthetic only.",
+        "CANDIDATE overlap-group hit count (one DamageNoti per target per cast keyed by caster and cast instance; 772/772 capture samples; real-profile 5001083/5001084 and lifetime tests pass on profile 87c4051c = deployed 48ec8de7 plus 184 overlap_group fields). overlapGroupPriority ignored; no real-profile ungrouped multi-hit test. NPC damage AMOUNT remains too high: mitigation unknown and server-only; stat ids 25=SPRegen, 20=MaxSatiety, armor 38/41/44/47/52/65, IncomingDamageDec 77; 30+30 power broadcast not proven authoritative. Nothing deployed; original-client acceptance open.",
+        "CANDIDATE durable in-place revive (20039): dead=false is committed through commit_world_revival before the 49/51/47/32 frames; refusal sends nothing and keeps the session; focused 121 passed/0 failed/2 PG skips, PG store 7/7 on a private cluster, reviewer native-wire PG run (row dead=false revision 2, reconnect alive, second death/revive). Missing: teleport/shrine rule, gold penalty, 50030001 protection, shared world/PvP, original-client acceptance; NPC damage AMOUNT still too high (Candidate evidence in combat/npc-damage-amount.md 27b602fc and combat/npc-attack-unit.md 02bf1d5f, not implemented). Non-blocking limits: position is client-reported, a post-commit in-memory failure could split store/session until reconnect, no throwing-store test.",
+        "CANDIDATE player wire unit id (character_id << 4) | 1 (raw 19 -> 305) on every player-naming frame with raw database identity unchanged, and the official player-death order 32, 169, 19, 23, 54, 47 with no player EndSkill: native tests for raw 1/17/19 plus independent reviewer FINAL ACCEPT of runtime d4827faf (synthetic and private-wire evidence only).",
+        "Remaining: original-client visible HP/death acceptance of the wire-id repair is required (none yet); NPC pursuit is unresolved (the two extracted client NPC behavior trees (M14_Monster, M14_TrueNeutral) have no move or chase node; the engine default tree used by the 3,103 blank-id Monster rows was not read, so the chase source is unknown; our skill-less 64/106 frames are ignored by the client); the 'fixed 1.5 s revival protection' is refuted (observed 0.375-52.7 s).",
+        "CANDIDATE catalog-driven NPC skill selection (band, Normal type, cooldown) plus the scheduling-gate fix for ranged skills (four captured ranged NPCs cast first from 10/15 m, then pursue internally) with generator patch 902b931f and regenerated combat profile 5dc7258b in definitions 0d677942: real CombatSession 5001010 at 10 m casts 190100100 with projectile 190100100 and hit 190100101; 7000 ms cooldown proven at unit level only; 11-NPC comparison against 87c4051c with named ranged cases and 5001016 at 2 m; synthetic only.",
+        "Remaining: min-0 long-maximum skills still held back by the legacy engagement gate (5001527 230240700/230241100/230241700); same-band priority, below-minimum behaviour, damage fidelity, acquisition cadence, NPC speed and visible pursuit unknown or unchanged; no original-client acceptance, no full combat claim.",
+        "CANDIDATE quest objective update frame parity (20019-trigger update lists only the changed objective); the passing native real-frame guard is baseline protection. The reported quest 10000040 objective-2 failure is NOT fixed and its cause is open.",
+        "2026-10-26 local combat rework: range/cooldown-aware rotating NPC repertoire, free-aim and linear projectile targeting, unique event identity, impact splash and repeated cylinder/box area pulses; seven captures re-extracted and 2249 stage timing corrected. See docs/combat-rework-20261026.md for current checks. Not deployed; independent review and original-client visual acceptance remain pending.",
+        "NPC locomotion repair validation (2026-10-26): C++20 Release server and focused protocol/core/world test executable built; 125 C++ cases passed, zero failed and eight historical profile-variant/baseline cases skipped. Three native TLS/MemoryStore cases passed: tutorial Run/prediction, combat/potion action timer and private open-world GM pursuit/Stop-before-attack/peer isolation/despawn. Python: 91 combat export, 11 tutorial spawn and 11 reference generator cases passed. TLS uses the documented child-process OPENSSL_ia32cap=0 diagnostic. Static client findings were saved to the matching IDB and versioned index/journal. New server and generated locomotion profile must ship together. No deployment or candidate original-client visual acceptance is claimed; public shared monster authority and navigation remain open. See docs/npc-locomotion-fix-20261026.md."
+      ],
+      "blocked_reason": null
+    },
+    {
+      "id": "feature-population",
+      "catalog_feature": "population",
+      "title": "World population, visibility and NPC AI",
+      "status": "in_progress",
+      "evidence": [
+        "Tutorial monsters with a complete NPC AI profile run perception, acquisition, pursuit and leash/return with aggro (98), state (32) and phase (114) notifications; attacks wait for pursuit to finish at one shared engagement distance; profiles without speed fields keep the legacy path (author-run native tests).",
+        "Remaining: run speed is UnitGroupModel.runSpeed x10 and move_speed_rate a neutral 1000, both Candidate; NPC skill selection has no catalog link; idle-server production shutdown is examined (see feature-session) but shutdown with open connections is not; independent review and shared-world simulation are open.",
+        "2026-10-26 local combat rework: range/cooldown-aware rotating NPC repertoire, free-aim and linear projectile targeting, unique event identity, impact splash and repeated cylinder/box area pulses; seven captures re-extracted and 2249 stage timing corrected. See docs/combat-rework-20261026.md for current checks. Not deployed; independent review and original-client visual acceptance remain pending.",
+        "2026-10-26 authored civilian patrol candidate: map 9012 adds 116 forward routes to 145 preserved stationary NPCs; shared-epoch timer/registry integration, authored inline pauses and three resolved activities are implemented. Release server/main test build succeeds; 50 selected CTest and 60 Python checks pass. Synthetic/module and integrated native socket validation are recorded in docs/civilian-patrols.md and out/npc-patrol-20261026/. Missing motion-point scripts, random/SlowWalk policies and original-client acceptance remain open. The human chose next restart; no live switch is authorized for this turn.",
+        "NPC locomotion repair validation (2026-10-26): C++20 Release server and focused protocol/core/world test executable built; 125 C++ cases passed, zero failed and eight historical profile-variant/baseline cases skipped. Three native TLS/MemoryStore cases passed: tutorial Run/prediction, combat/potion action timer and private open-world GM pursuit/Stop-before-attack/peer isolation/despawn. Python: 91 combat export, 11 tutorial spawn and 11 reference generator cases passed. TLS uses the documented child-process OPENSSL_ia32cap=0 diagnostic. Static client findings were saved to the matching IDB and versioned index/journal. New server and generated locomotion profile must ship together. No deployment or candidate original-client visual acceptance is claimed; public shared monster authority and navigation remain open. See docs/npc-locomotion-fix-20261026.md.",
+        "2026-10-26 final civilian movement repair: deterministic NPC type-2 identities and patrol MoveSpeedRate initialization deployed after explicit restart approval. All 41 module and eight native socket checks pass. The human confirms NPC movement now works; specialized work-point scripts, navigation and full shared monster authority remain incomplete. See docs/npc-patrol-animation-20261026.md."
+      ],
+      "blocked_reason": null
+    },
+    {
+      "id": "feature-projectiles",
+      "catalog_feature": "projectiles",
+      "title": "Projectiles and skill objects",
+      "status": "in_progress",
+      "evidence": [
+        "Generator-side only: projectile fields read by the C++ loader are validated in tools/build_combat_data.py. Runtime collision and area effects are not implemented.",
+        "2026-10-26 local combat rework: range/cooldown-aware rotating NPC repertoire, free-aim and linear projectile targeting, unique event identity, impact splash and repeated cylinder/box area pulses; seven captures re-extracted and 2249 stage timing corrected. See docs/combat-rework-20261026.md for current checks. Not deployed; independent review and original-client visual acceptance remain pending."
+      ],
+      "blocked_reason": null
+    },
+    {
+      "id": "feature-status",
+      "catalog_feature": "status",
+      "title": "Status effects, recovery, auras and abnormal gauges",
+      "status": "in_progress",
+      "evidence": [
+        "Generator-side only: status-effect references are validated and observed durations were compared with catalog rows (docs/combat-status-effect-evidence.md). Runtime status application is not implemented.",
+        "PARTIAL self-cast timed status integrated locally (opcode 49 add and 51 removal at expiry or death, catalog durations from an optional profile table; death removal and timing Candidate). Not done: stacking, refresh, stat, damage, random, aura and NPC statuses; deployment needs the matching profile data; original-client acceptance."
+      ],
+      "blocked_reason": null
+    },
+    {
+      "id": "feature-progression",
+      "catalog_feature": "progression",
+      "title": "Level, EXP, stats, perks and achievements",
+      "status": "pending",
+      "evidence": [],
+      "blocked_reason": null
+    },
+    {
+      "id": "unequip",
+      "catalog_feature": "inventory",
+      "title": "Finish bare unequip",
+      "status": "in_progress",
+      "evidence": [
+        "Bare unequip is implemented for the observed shape: slot-only ItemEquipReq answers 169 without an equip slot and 168 without item_cms_id; an empty slot is a silent no-op, a stale revision changes nothing, and repeated or same-revision equip-plus-unequip tests exist (author-run native tests; independent build-and-test review of a6dde5e6: full CTest 227 registered, 0 failed, 9 skipped).",
+        "Remaining: the Bag slot server rule and any official refusal are unverified; independent review and original-client observation of the mutation are pending."
+      ],
+      "blocked_reason": null
+    },
+    {
+      "id": "weight-limits",
+      "catalog_feature": "inventory",
+      "title": "Enforce weight limits atomically",
+      "status": "in_progress",
+      "evidence": [
+        "Carried-weight measurement uses checked int64 arithmetic with negative-input and overflow rejection; a bag replaces the default safe weight. The Bag-unequip-with-weight test uses the Fight starter Bag and catalog weights and its expected total counts every fixture item (author-run and independently build-and-test reviewed at a6dde5e6; refusal semantics unverified).",
+        "Remaining: no weight-limit refusal code, penalty or maximum was observed, so none is enforced; atomic rejection of over-weight mutations is not implemented."
+      ],
+      "blocked_reason": null
+    },
+    {
+      "id": "missing-currencies",
+      "catalog_feature": "inventory",
+      "title": "Persist and implement missing currencies including Blue Salt and Hersander Token",
+      "status": "in_progress",
+      "evidence": [
+        "Hersander Token persists as a revision-guarded WorldProgress field in schema version 10; Gold and Hersander share the 9e15 catalog limit and out-of-range balances are rejected; Gold rewards credit through the currency module with an all-or-nothing commit; Candidate: the entry money snapshot (126) carries the Hersander balance when nonzero, from a single captured snapshot (author-run native and disposable-PostgreSQL tests).",
+        "Remaining: no gameplay source grants or spends Hersander Tokens, Blue Salt has no verified mutation rules, and independent review plus original-client observation are pending."
+      ],
+      "blocked_reason": null
+    },
+    {
+      "id": "feature-inventory",
+      "catalog_feature": "inventory",
+      "title": "Inventory, equipment, currency and utility bag",
+      "status": "in_progress",
+      "evidence": [
+        "Bounded slices landed on the integration branch: bare unequip, checked weight measurement, Hersander persistence and Gold crediting through the currency module. The feature remains partial; see unequip, weight-limits and missing-currencies.",
+        "PARTIAL item polish integrated locally on schema v12: equipped-weapon 47 refresh reproduces six captured cases, steps capped by the item's increase table, always-succeed rows only. Not done: armor and elemental scaling, Weapon_2 beyond vitals, 47 after equip/unequip, chance-based steps, production v12 migration and deployment."
+      ],
+      "blocked_reason": null
+    },
+    {
+      "id": "feature-auth",
+      "catalog_feature": "auth",
+      "title": "Accounts, authentication and realm discovery",
+      "status": "pending",
+      "evidence": [],
+      "blocked_reason": null
+    },
+    {
+      "id": "feature-characters",
+      "catalog_feature": "characters",
+      "title": "Character lobby and identity",
+      "status": "pending",
+      "evidence": [],
+      "blocked_reason": null
+    },
+    {
+      "id": "feature-session",
+      "catalog_feature": "session",
+      "title": "World connection, clock and session lifecycle",
+      "status": "in_progress",
+      "evidence": [
+        "Teardown ordering fix: the production worker pool is declared before the io_context so it is destroyed last (a6dde5e6); the matching test-fixture fix is 5278c951. Independent build-and-test review of a6dde5e6 passed the crash test 20 of 20.",
+        "Remaining: sessions are not closed or drained before teardown; idle-server graceful shutdown exits normally in the author smoke (candidate and baseline 3 of 3) and in an independent reviewer smoke of the candidate (3 of 3), but shutdown with open connections or pending session teardown is untested; original-client session behavior is unobserved."
+      ],
+      "blocked_reason": null
+    },
+    {
+      "id": "feature-movement",
+      "catalog_feature": "movement",
+      "title": "Movement, map travel, gliding and teleportation",
+      "status": "in_progress",
+      "evidence": [
+        "NPC MoveNoti server emission: out/agent-team-reports/combat/npc-movenoti-impl.md (synthetic Combat tests, native-socket test, private PG 7/7); Candidate cadence, original-client following not observed",
+        "NPC locomotion repair validation (2026-10-26): C++20 Release server and focused protocol/core/world test executable built; 125 C++ cases passed, zero failed and eight historical profile-variant/baseline cases skipped. Three native TLS/MemoryStore cases passed: tutorial Run/prediction, combat/potion action timer and private open-world GM pursuit/Stop-before-attack/peer isolation/despawn. Python: 91 combat export, 11 tutorial spawn and 11 reference generator cases passed. TLS uses the documented child-process OPENSSL_ia32cap=0 diagnostic. Static client findings were saved to the matching IDB and versioned index/journal. New server and generated locomotion profile must ship together. No deployment or candidate original-client visual acceptance is claimed; public shared monster authority and navigation remain open. See docs/npc-locomotion-fix-20261026.md."
+      ],
+      "blocked_reason": null
+    },
+    {
+      "id": "feature-quests",
+      "catalog_feature": "quests",
+      "title": "Quest chains, objectives and rewards",
+      "status": "pending",
+      "evidence": [],
+      "blocked_reason": null
+    },
+    {
+      "id": "feature-interaction",
+      "catalog_feature": "interaction",
+      "title": "Dialogue, adventure objects, doors and cutscenes",
+      "status": "in_progress",
+      "evidence": [
+        "2026-10-26 Nuia Tears: native proximity collection, catalog item-2000 rewards, atomic character-owned completion, duplicate/cross-map protection and reconnect snapshots implemented. Release server/tests built; nine focused CTests and three Python extraction/capture checks passed, including two characters over TLS and all 19 official P1/P2 associations. See docs/nuia-tears.md. Independent review, deployment and original-client acceptance remain pending; collection achievements/play-record counters are outside this increment."
+      ],
+      "blocked_reason": null
+    },
+    {
+      "id": "feature-loot",
+      "catalog_feature": "loot",
+      "title": "Corpse loot and reward ownership",
+      "status": "in_progress",
+      "evidence": [
+        "CANDIDATE server-side monster corpse loot for the private tutorial instance: Npc.FK_lootPackId packs roll once at death, has_chance_to_loot precedes Demise/death, PC2S_LootItemReq takes gold/stacks/instances atomically with ownership, range, capacity and double-take checks, and corpses with loot are removed after 90 s (10 s after a take). Python builder (17 tests), 32 loot gtest cases on the memory store plus two combat observer cases; synthetic only.",
+        "Remaining: kill gold (not authored in the catalog), handling loot, filtered/boss first-kill groups, party and shared-world loot rights, an evidenced weight rule, PostgreSQL run, and original-client acceptance (never observed)."
+      ],
+      "blocked_reason": null
+    },
+    {
+      "id": "feature-merchants",
+      "catalog_feature": "merchants",
+      "title": "NPC shops, sales and repairs",
+      "status": "pending",
+      "evidence": [
+        "No working merchant: shop open is bounded (grants nothing, target unverified, 171 timing Candidate) and buy and sell are refused behind a fail-closed gate (commits 0c35ed43 and 25a6ad37); the non-tutorial shop path is unreachable in a server that loads tutorial definitions. Author 235 registered (225 passed, 10 skipped, 0 failed), focused 49/49, PostgreSQL 7/4/4; independent Shop repeats and PostgreSQL handler refusal 7/7; no original-client result. The earlier ungated success results are historical.",
+        "Remaining: the three prerequisite items below, then equipment buy and sell, durability repair, purchase limits, refund rates, rounding, weight and slot limits, shop refusal codes, the non-tutorial DialogueStartReq to 161 reply, tutorial-instance shops, zero-quantity stack wire form, and original-client shop acceptance.",
+        "Shop open now also refuses without a registry-resolved NPC that offers the interaction and shop (BadRequest, no reply frame); buy and sell stay refused. Merchants remain missing."
+      ],
+      "blocked_reason": null
+    },
+    {
+      "id": "feature-crafting",
+      "catalog_feature": "crafting",
+      "title": "Gathering, cooking, crafting and item improvement",
+      "status": "pending",
+      "evidence": [],
+      "blocked_reason": null
+    },
+    {
+      "id": "feature-chat",
+      "catalog_feature": "chat",
+      "title": "World/local/group chat and whispers",
+      "status": "pending",
+      "evidence": [],
+      "blocked_reason": null
+    },
+    {
+      "id": "feature-party",
+      "catalog_feature": "party",
+      "title": "Parties, leadership and group channels",
+      "status": "pending",
+      "evidence": [],
+      "blocked_reason": null
+    },
+    {
+      "id": "feature-friends",
+      "catalog_feature": "friends",
+      "title": "Friends, lookup and presence",
+      "status": "in_progress",
+      "evidence": [
+        "2026-10-27 human request: adding a friend showed System Error; implement the full friend list.",
+        "Client friend manager recovered statically (dumps/ida_research/friends-20261027). FriendService, memory/PostgreSQL schema 31 persistence, front adapter for 20020-20024, presence pushes and the SM_FRIEND_ADD_ALARM push added with synthetic tests.",
+        "Blocking, Steam friend codes, live level/guild pushes, independent review, push and original-client acceptance remain open."
+      ],
+      "blocked_reason": null
+    },
+    {
+      "id": "feature-guild",
+      "catalog_feature": "guild",
+      "title": "Guilds, companies and membership",
+      "status": "pending",
+      "evidence": [],
+      "blocked_reason": null
+    },
+    {
+      "id": "feature-companions",
+      "catalog_feature": "companions",
+      "title": "Mounts, mates and summoned NPCs",
+      "status": "pending",
+      "evidence": [],
+      "blocked_reason": null
+    },
+    {
+      "id": "feature-housing",
+      "catalog_feature": "housing",
+      "title": "Housing, land contracts and placed objects",
+      "status": "pending",
+      "evidence": [],
+      "blocked_reason": null
+    },
+    {
+      "id": "feature-trade",
+      "catalog_feature": "trade",
+      "title": "Trading posts, wagons, vouchers and marketplace",
+      "status": "pending",
+      "evidence": [],
+      "blocked_reason": null
+    },
+    {
+      "id": "feature-mail",
+      "catalog_feature": "mail",
+      "title": "Mail, storage boxes and delivery history",
+      "status": "pending",
+      "evidence": [],
+      "blocked_reason": null
+    },
+    {
+      "id": "feature-rank",
+      "catalog_feature": "rank",
+      "title": "Rankings, raids and channel events",
+      "status": "in_progress",
+      "evidence": [
+        "2026-10-26 local runtime: catalog-backed leaderboard queries and durable operator-timed records (MemoryStore/PostgreSQL schema 28), bounded FIFO raid application/match/lifecycle/travel, channel status/tribute handling and authored ungated trigger entry. Follow-up fixes reserve maps until evictions finish, preserve parent-map return through housing, enforce raid admission on generic travel, cap ranking query rates and read standings from one PostgreSQL snapshot. Release: 38 feature cases passed with one normal PostgreSQL skip, the isolated PostgreSQL case passed separately, and three native TLS cases passed. See docs/rankings-raids-channel-events.md and VALIDATION.md for evidence and limits.",
+        "Incomplete official gameplay: no authored event/raid objective scripts or boss encounters, automatic score qualification/reward settlement, durable tribute recovery or original-client acceptance. Page synchronization unavailable (HTTP 403; no authenticated Page tools). Keep partial, not complete."
+      ],
+      "blocked_reason": null
+    },
+    {
+      "id": "feature-paid",
+      "catalog_feature": "paid",
+      "title": "Paid shop, Steam purchases and preorder rewards",
+      "status": "pending",
+      "evidence": [],
+      "blocked_reason": null
+    },
+    {
+      "id": "feature-debug",
+      "catalog_feature": "debug",
+      "title": "Diagnostics, GM commands and anti-cheat messaging",
+      "status": "in_progress",
+      "evidence": [
+        "2026-10-26: bounded GM diagnostics, session, inventory/progression and private combat/quest/mail paths are implemented locally. docs/gm-command-catalog.md enumerates all 126 recovered fields and explicitly lists unsupported systems; tools/test_gm_command_catalog.py verifies names and numbers against the descriptor. See VALIDATION.md for actual synthetic checks. This is not full GM completion or original-client acceptance; anti-cheat is excluded."
+      ],
+      "blocked_reason": null
+    },
+    {
+      "id": "feature-ai",
+      "catalog_feature": "ai",
+      "title": "Conversational AI agent-engine REST services",
+      "status": "in_progress",
+      "evidence": [
+        "2026-10-26: agent engine (8 client routes, persistence, scripted/optional model, emulator-defined planning routes) and launcher base-URL redirect implemented; unit, HTTP smoke and launcher redirect tests pass. See docs/agent-engine.md.",
+        "Not deployed or reviewed; original-client AI chat with house mate Seren must be observed before completion."
+      ],
+      "blocked_reason": null
+    },
+    {
+      "id": "feature-preferences",
+      "catalog_feature": "preferences",
+      "title": "Client preferences, exploration REST and feedback",
+      "status": "in_progress",
+      "evidence": [
+        "2026-10-26: matching-build IDA recovery confirms incremental CharFogAreaSaveReq and CharFogAreaLoadReq. Native protobuf REST and migration-25 character-owned monotonic persistence implemented. All seven focused cases, HTTP persistence across server and PostgreSQL restart, and existing memory/native login integrations pass. See docs/map-exploration.md; live deployment and original-client map acceptance remain pending. Other preferences, objective counters and feedback remain partial or missing."
+      ],
+      "blocked_reason": null
+    },
+    {
+      "id": "feature-expression",
+      "catalog_feature": "expression",
+      "title": "Emotes, social animations and selfie mode",
+      "status": "in_progress",
+      "evidence": [
+        "2026-10-26 local implementation (src/world/features/expression/player_expression.*, docs/emotes-and-selfie.md): EmotionExecReq validation with Emotion_* codes and EmotionExecRes, EmotionExecNoti and SelfieModeNoti to nearby players with late-viewer selfie replay, Basic/granted ownership persisted in schema 27, WorldCharEmotionsNoti entry snapshot and GM emotion_add with EmotionsUpdateNoti. Static client evidence saved to the IDB (dumps/ida_research/expression-20261026). PC2S_StartSocialMotionReq has no client sender and is out of scope.",
+        "Remaining for completion: independent review, reviewed commit, reviewed running build and original-client acceptance of a local emote, a nearby player's emote and selfie mode. Synthetic checks only; see docs/emotes-and-selfie.md for their results."
+      ],
+      "blocked_reason": null
+    },
+    {
+      "id": "feature-common",
+      "catalog_feature": "common",
+      "title": "Common messages and service announcements",
+      "status": "pending",
+      "evidence": [],
+      "blocked_reason": null
+    },
+    {
+      "id": "shutdown-connection-drain",
+      "catalog_feature": "session",
+      "title": "Close and drain sessions before server teardown",
+      "status": "pending",
+      "evidence": [
+        "Only the destruction order is fixed (a6dde5e6); no connection drain exists. Idle-server smoke: candidate a6dde5e6 exit 0 in 3 of 3 (author) and 3 of 3 (independent reviewer), baseline 46839f1 exit 0 in 3 of 3 (author), all with a logged Ctrl+C helper; earlier candidate no-exit runs used an unlogged helper and are attributed, unproven, to harness signal delivery. No client or world connection was open during shutdown, and no pending gameplay-tick or session teardown was exercised."
+      ],
+      "blocked_reason": null
+    },
+    {
+      "id": "npc-unit-registry-map-instance",
+      "catalog_feature": "population",
+      "title": "Server-owned NPC unit registry and map/instance ownership outside tutorial sessions",
+      "status": "in_progress",
+      "evidence": [
+        "Audit npc-registry-audit.md (SHA-256 prefix fa0151c7): outside tutorial sessions the server owns no NPC registry, no per-session map or instance identity beyond the constant 8000, and tutorial NPC ids are baked into definitions by tools.",
+        "Partial prerequisite integrated: per-session UnitRegistry fed from server-sent NPC adds and cleared on server-sent despawn and destroyed with the session, NpcInteractionIndex, and a registry-resolved shop open that refuses without an announced NPC. Also integrated, PARTIAL: map 9012 entry from a server-persisted position with a full placement file loaded via --npc-placements (752 active NPCs announced on map load, stable ids across reconnect, map change resets registry and opened-shop state on the worker strand), NPC-range character id refusal, opened-shop record with unwired permits. Not done: any legitimate in-game transition into 9012, initial spawn, terrain, range, movement and speed, 8 missing placement layers, consulting opened-shop permits, original-client observation; announce order and queue bound are Candidate.",
+        "2026-10-26 local combat rework: range/cooldown-aware rotating NPC repertoire, free-aim and linear projectile targeting, unique event identity, impact splash and repeated cylinder/box area pulses; seven captures re-extracted and 2249 stage timing corrected. See docs/combat-rework-20261026.md for current checks. Not deployed; independent review and original-client visual acceptance remain pending."
+      ],
+      "blocked_reason": null
+    },
+    {
+      "id": "authoritative-movement-position",
+      "catalog_feature": "movement",
+      "title": "Authoritative player movement and position validation",
+      "status": "pending",
+      "evidence": [
+        "Audit position-range-audit.md (SHA-256 prefix 31de162c): the non-tutorial session position comes from client movement reports with the map forced to 8000 and no speed, teleport or bounds check."
+      ],
+      "blocked_reason": null
+    },
+    {
+      "id": "interaction-range-opened-target",
+      "catalog_feature": "interaction",
+      "title": "Interaction range provenance and opened-target group binding",
+      "status": "pending",
+      "evidence": [
+        "Audit position-range-audit.md (SHA-256 prefix 31de162c): no verified interaction range exists for non-tutorial sessions and a shop open is not bound to the target that was opened; no range is to be guessed from the tutorial distance."
+      ],
+      "blocked_reason": null
+    }
+  ]
+}

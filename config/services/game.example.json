@@ -1,0 +1,13 @@
+{
+  "bind_address": "127.0.0.1",
+  "port": 8082,
+  "public_address": "http://127.0.0.1:8082",
+  "auth_authority": "http://127.0.0.1:8090",
+  "storage": "postgres",
+  "native_client": "local",
+  "native_require_launch_grant": true,
+  "world_port": 8081,
+  "world_advertised_host": "127.0.0.1",
+  "tls_cert": "out/certificates/world.pem",
+  "tls_key": "out/certificates/world.key"
+}

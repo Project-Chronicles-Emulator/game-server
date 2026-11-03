@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Read-only dump of trigger-volume actors from the cooked tutorial map. Output only to a caller-chosen ignored out/ path. -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <CuePath>D:/PROJETOS/Archeage Emulator/Aion2AssetExtractor/bin/Release/net10.0</CuePath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="$(CuePath)/*.dll" />
+    <None Include="$(CuePath)/*.dll" Link="%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

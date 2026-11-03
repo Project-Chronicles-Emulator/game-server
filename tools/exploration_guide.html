@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ArcheAge Chronicles — Exploration destinations</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            font-family: system-ui, sans-serif;
+        }
+
+        body {
+            margin: 0 auto;
+            padding: 28px;
+            max-width: 1200px;
+            background: #16191d;
+            color: #e6e8eb;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .muted, small {
+            color: #acb3bc;
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding: 16px 0;
+        }
+
+        input, select, button {
+            font: inherit;
+            padding: 9px;
+            background: #23282e;
+            color: inherit;
+            border: 1px solid #4a515b;
+            border-radius: 4px;
+        }
+
+        #search {
+            flex: 1;
+            min-width: 230px;
+        }
+
+        article {
+            padding: 18px 0;
+            border-bottom: 1px solid #3a4048;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin: 0 0 6px;
+        }
+
+        code {
+            font-size: 14px;
+            word-break: break-word;
+        }
+
+        .command {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin: 10px 0;
+        }
+
+        .details {
+            margin: 8px 0;
+        }
+
+        details {
+            margin-top: 10px;
+        }
+
+        summary {
+            cursor: pointer;
+        }
+
+        .notice {
+            border-left: 3px solid #8ea6c1;
+            padding-left: 16px;
+        }
+
+        .visited {
+            opacity: 0.55;
+        }
+
+        label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exploration destinations</h1>
+    <p class="muted">ArcheAge Chronicles researched demo build · Static client catalog and authored map exports</p>
+    <div class="notice">
+        <p>Start in the main world with <code>/gm tp_map 9012</code>, then use a destination's
+        <code>/gm tp</code> command. Coordinates are meters. Commands assume your current map
+        belongs to ArcheWorld; they do not load a dungeon or another world.</p>
+        <p>To reveal saved map fog, use <code>/gm reveal_map</code> and select your character again.
+        Fog reveal leaves Adventure Progress, quests, zone restrictions and collision unchanged.
+        Approximate destinations use a real authored height but may be an NPC location or outside
+        the named area's true polygon. Landing safety and traversal are unverified.</p>
+    </div>
+    <div class="controls">
+        <input id="search" type="search" aria-label="Search destinations" placeholder="Search name, region, zone key or map id">
+        <select id="category" aria-label="Destination category"><option value="">All categories</option></select>
+        <select id="region" aria-label="Region"><option value="">All regions</option></select>
+        <label><input id="available" type="checkbox"> With teleport coordinates</label>
+        <label><input id="unvisited" type="checkbox"> Not marked visited</label>
+    </div>
+    <p id="count" role="status"></p>
+    <main id="places"></main>
+    <p class="muted">Every named Zone catalog entry is retained, including disabled and unplaced areas.
+    Checkmarks are optional notes saved only in this browser; they do not modify game progress.</p>
+    <script id="data" type="application/json">__EXPLORATION_DATA__</script>
+    <script>
+        const profile = JSON.parse(document.getElementById("data").textContent);
+        const search = document.getElementById("search");
+        const category = document.getElementById("category");
+        const region = document.getElementById("region");
+        const available = document.getElementById("available");
+        const unvisited = document.getElementById("unvisited");
+        const storageKey = "chronicles-exploration-" + profile.build_id;
+        let visited = new Set();
+        try {
+            visited = new Set(JSON.parse(localStorage.getItem(storageKey) || "[]"));
+        } catch (error) {
+            console.warn("Visited notes are unavailable in this browser.");
+        }
+
+        function addOptions(select, values) {
+            for (const value of [...new Set(values)].sort()) {
+                const option = document.createElement("option");
+                option.value = value;
+                option.textContent = value;
+                select.append(option);
+            }
+        }
+
+        function textElement(tag, text, className = "") {
+            const element = document.createElement(tag);
+            element.textContent = text;
+            element.className = className;
+            return element;
+        }
+
+        function placeId(place) {
+            return place.zone_id === null ? place.zone_key : String(place.zone_id);
+        }
+
+        function render() {
+            const query = search.value.toLowerCase().trim();
+            const filtered = profile.places.filter(place => {
+                const text = [place.name, place.region, place.zone_key, ...place.map_ids].join(" ");
+                return text.toLowerCase().includes(query)
+                    && (!category.value || place.category === category.value)
+                    && (!region.value || place.region === region.value)
+                    && (!available.checked || place.command)
+                    && (!unvisited.checked || !visited.has(placeId(place)));
+            });
+            document.getElementById("count").textContent =
+                `${filtered.length} of ${profile.places.length} destinations · ${visited.size} marked visited`;
+            const container = document.getElementById("places");
+            container.replaceChildren();
+            for (const place of filtered) {
+                const article = document.createElement("article");
+                const id = placeId(place);
+                article.className = visited.has(id) ? "visited" : "";
+                article.append(textElement("h2", place.name));
+                article.append(textElement("div", `${place.region} · ${place.category} · ${place.zone_key}`, "muted"));
+                article.append(textElement("p", place.confidence +
+                    (place.catalog_active ? " · Catalog activation enabled" : " · Catalog activation disabled or unspecified"), "details"));
+                if (place.command) {
+                    const line = document.createElement("div");
+                    line.className = "command";
+                    const code = textElement("code", place.command);
+                    const copy = textElement("button", "Copy command");
+                    copy.addEventListener("click", async () => {
+                        try {
+                            await navigator.clipboard.writeText(place.command);
+                            copy.textContent = "Copied";
+                        } catch (error) {
+                            const selection = window.getSelection();
+                            const range = document.createRange();
+                            range.selectNodeContents(code);
+                            selection.removeAllRanges();
+                            selection.addRange(range);
+                            copy.textContent = "Selected — press Ctrl+C";
+                        }
+                    });
+                    line.append(code, copy);
+                    article.append(line);
+                } else {
+                    article.append(textElement("p", "Teleport command withheld: no verified main-world anchor. Associated map ids: " +
+                        (place.map_ids.join(", ") || "none"), "muted"));
+                }
+                const label = document.createElement("label");
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.checked = visited.has(id);
+                checkbox.addEventListener("change", () => {
+                    if (checkbox.checked) {
+                        visited.add(id);
+                    } else {
+                        visited.delete(id);
+                    }
+                    try {
+                        localStorage.setItem(storageKey, JSON.stringify([...visited]));
+                    } catch (error) {
+                        console.warn("Visited notes could not be saved.");
+                    }
+                    render();
+                });
+                label.append(checkbox, document.createTextNode("Marked visited"));
+                article.append(label);
+                if (place.source) {
+                    const details = document.createElement("details");
+                    details.append(textElement("summary", "Static coordinate evidence"));
+                    details.append(textElement("p", `${place.world} · ${place.anchor_kind} · ${place.anchor_id}`));
+                    details.append(textElement("small", place.source));
+                    article.append(details);
+                }
+                container.append(article);
+            }
+        }
+
+        addOptions(category, profile.places.map(place => place.category));
+        addOptions(region, profile.places.map(place => place.region));
+        for (const element of [search, category, region, available, unvisited]) {
+            element.addEventListener("input", render);
+        }
+        render();
+    </script>
+</body>
+</html>

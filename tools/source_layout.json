@@ -1,0 +1,100 @@
+{
+  "format_version": 1,
+  "description": "Module folders under src/ (docs/superpowers/specs/2026-10-27-modular-emulator-architecture-design.md section 3). Modules are folders under src/; a file belongs to the longest module folder that contains it. Test files go to <module>/tests/, except in testing/. Allowed layer-to-layer includes are listed in layer_dependencies; each module folder has a CMakeLists.txt calling chronicles_add_module, whose DEPENDS list is the single record of the modules it includes (apps, the executables folder, has no call).",
+  "layers": [
+    "common",
+    "distribution",
+    "protocol",
+    "data",
+    "persistence",
+    "auth",
+    "net",
+    "world/core",
+    "world/features",
+    "world/session",
+    "services",
+    "apps",
+    "testing"
+  ],
+  "layer_dependencies": {
+    "common": [],
+    "distribution": [],
+    "protocol": ["common"],
+    "data": ["common", "protocol"],
+    "persistence": ["common", "data"],
+    "auth": ["common", "distribution", "protocol", "data", "persistence"],
+    "net": ["common", "protocol"],
+    "world/core": ["common", "distribution", "protocol", "data", "persistence", "auth", "net"],
+    "world/features": [
+      "common", "distribution", "protocol", "data", "persistence", "auth", "net", "world/core"
+    ],
+    "world/session": [
+      "common", "distribution", "protocol", "data", "persistence", "auth", "net", "world/core",
+      "world/features"
+    ],
+    "services": [
+      "common", "distribution", "protocol", "data", "persistence", "auth", "net", "world/core",
+      "world/features", "world/session"
+    ],
+    "apps": [
+      "common", "distribution", "protocol", "data", "persistence", "auth", "net", "world/core",
+      "world/features", "world/session", "services"
+    ],
+    "testing": [
+      "common", "distribution", "protocol", "data", "persistence", "auth", "net", "world/core",
+      "world/features", "world/session", "services"
+    ]
+  },
+  "modules": [
+    "apps",
+    "auth",
+    "common",
+    "data",
+    "distribution",
+    "net",
+    "persistence",
+    "protocol",
+    "services/admin",
+    "services/agent_engine",
+    "services/discord",
+    "services/front",
+    "services/news",
+    "services/portal",
+    "services/portal_storage",
+    "services/social",
+    "testing",
+    "world/core",
+    "world/features/adventure",
+    "world/features/character",
+    "world/features/chat",
+    "world/features/combat",
+    "world/features/companion",
+    "world/features/company",
+    "world/features/escape",
+    "world/features/events",
+    "world/features/expression",
+    "world/features/fog",
+    "world/features/friends",
+    "world/features/gathering",
+    "world/features/guides",
+    "world/features/gm",
+    "world/features/guild",
+    "world/features/hotkeys",
+    "world/features/housing",
+    "world/features/inventory",
+    "world/features/item_use",
+    "world/features/loot",
+    "world/features/mail",
+    "world/features/market",
+    "world/features/npc",
+    "world/features/nuia",
+    "world/features/party",
+    "world/features/processing",
+    "world/features/quests",
+    "world/features/shop",
+    "world/features/trade",
+    "world/features/travel",
+    "world/features/tutorial",
+    "world/session"
+  ]
+}

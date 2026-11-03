@@ -1,0 +1,19 @@
+chronicles_add_module(world/features/adventure
+  SOURCES
+    adventure.cpp
+  DEPENDS
+    world/core
+    world/features/loot
+    world/features/quests
+    world/features/tutorial
+  LIBRARIES
+    chronicles-messages
+    nlohmann_json::nlohmann_json
+)
+
+chronicles_add_module_tests(world/features/adventure
+  SOURCES
+    tests/adventure_tests.cpp
+  MODULES
+    protocol
+)

@@ -1,0 +1,36 @@
+{
+  "format_version": 1,
+  "reviewed_at": "2026-10-26",
+  "client_native_log_build": "40367e24241c9481bfc07fbf9ef1919f25fb0eaa",
+  "input_executable_sha256": "e4002be7746485ba5e789c8ac798f48dce016d165e07c0e93e4e4e8e4fd693b6",
+  "evidence_kind": "static client analysis; synthetic verification tracked separately",
+  "research_directory": "../dumps/ida_research/fog-20261026",
+  "load": {
+    "method": "GET",
+    "route": "/api/front/CharFogAreaLoadReq/<char_id>",
+    "authentication": "Bearer front session token",
+    "request_body": null,
+    "response_schema": "x5.pb.rest.FogAreaLoadRes",
+    "sender_rva": "0x61803b0",
+    "callback_rva": "0x618a740",
+    "apply_rva": "0x5ea4690",
+    "observed_static_behavior": "HTTP 200 through 206 parses the protobuf response and applies the deduplicated fog ids. Load is called after front character selection."
+  },
+  "save": {
+    "method": "PUT",
+    "route": "/api/front/CharFogAreaSaveReq/<char_id>",
+    "authentication": "Bearer front session token",
+    "content_type": "application/protobuf",
+    "request_schema": "x5.pb.rest.FogAreaSaveReq",
+    "sender_rva": "0x6180640",
+    "callback_rva": "0x618aae0",
+    "discovery_caller_rva": "0x5ea5120",
+    "observed_static_behavior": "Discovery inserts a newly seen area locally and sends one id. Save completion reads HTTP status without parsing a response body. Therefore server saves must merge discoveries."
+  },
+  "limits": [
+    "The client owns the fog discovery decision; authoritative server polygon traversal is not implemented.",
+    "Adventure Progress objective counters and collection achievements are separate from fog persistence.",
+    "No original-client trial against the updated emulator or live-service deployment is established by this evidence.",
+    "World-only official capture logs do not include these REST requests."
+  ]
+}

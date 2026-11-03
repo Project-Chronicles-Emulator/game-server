@@ -1,0 +1,5 @@
+{
+  "server_url": "http://127.0.0.1:8480",
+  "patch_public_key": "REPLACE_WITH_THE_RELEASE_SIGNING_PUBLIC_KEY",
+  "patch_channel": "stable"
+}

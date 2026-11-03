@@ -1,0 +1,6 @@
+{
+  "enabled": false,
+  "client_id": "1563414029114810438",
+  "client_secret": "REPLACE_WITH_DISCORD_OAUTH_CLIENT_SECRET",
+  "redirect_uri": "http://127.0.0.1:8080/emulator/v1/discord/callback"
+}

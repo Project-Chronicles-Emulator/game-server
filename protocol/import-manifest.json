@@ -1,0 +1,18 @@
+{
+  "files": {
+    "descriptors.pb": {
+      "sha256": "daacd216ae7ceaa09cdf4722726c431fb43ab802096e4d32cd7b8b8b3784e9fd",
+      "bytes": 805454
+    },
+    "descriptors.normalized.pb": {
+      "sha256": "f1f8003d47336ee2ed3c6f9a3fdce1e39efe70a64b51768e215a2c9b3372d43b",
+      "bytes": 805541
+    },
+    "opcodes.json": {
+      "sha256": "c833e2b0a43885e7569b666827ef5ca4fad25dee58ec075aece778329d431cc4",
+      "bytes": 190409
+    }
+  },
+  "schema_files": 92,
+  "normalization": "x5msg -> proto3 only"
+}

@@ -1,0 +1,1755 @@
+{
+  "format_version": 1,
+  "source_kind": "ArcheAge Chronicles Demo extracted static client catalog",
+  "source_executable_dump_sha256": "e4002be7746485ba5e789c8ac798f48dce016d165e07c0e93e4e4e8e4fd693b6",
+  "source_catalog_summary_sha256": "9e026f34387954c5d3956855d80017e5d9cd80656fb701fc9caceca5260108d3",
+  "table_count": 286,
+  "files": [
+    {
+      "path": "Tables/AIChatMessage.jsonl",
+      "bytes": 136,
+      "sha256": "4d33bede2b0d652ef000dc0b2df0cd78ce1aed4bbf7b4d09d5dea8cb6d260f88",
+      "records": 3
+    },
+    {
+      "path": "Tables/AIChatNpcAgent.jsonl",
+      "bytes": 33,
+      "sha256": "f5bf34aade50e0493cc5a111d0e5845acae454542a0bd18ac84536705b4fe856",
+      "records": 1
+    },
+    {
+      "path": "Tables/AIChatPlayerAgent.jsonl",
+      "bytes": 114,
+      "sha256": "419122ee728cf47d3fe63e13994459e57cabfc638199a09c93591908c146522f",
+      "records": 1
+    },
+    {
+      "path": "Tables/Achievement.jsonl",
+      "bytes": 21804,
+      "sha256": "67e35f62408f515b71f566abe046d01cc799ab576a391dfe442e3161c4dfd01d",
+      "records": 106
+    },
+    {
+      "path": "Tables/AchievementGoal.jsonl",
+      "bytes": 81118,
+      "sha256": "eba9305e655e1a259d8dc9d07f50866112ec6a01bab339302e39a2ae84f09e9b",
+      "records": 475
+    },
+    {
+      "path": "Tables/AdventureLogbook.jsonl",
+      "bytes": 3323,
+      "sha256": "91ecd8b44fd3eabe74bddbb37ae73d219d133bdb0433f88886d92921bd9afc71",
+      "records": 50
+    },
+    {
+      "path": "Tables/AdventureObject.jsonl",
+      "bytes": 2059779,
+      "sha256": "28a0aab86ac35991ea5d0218806fed7db9cd4466854d450870858c79759939f1",
+      "records": 4245
+    },
+    {
+      "path": "Tables/AmbientBehaviorData.jsonl",
+      "bytes": 5884,
+      "sha256": "c09b3230eb824bcbc075a3f64298bad99c754d706eda54f6652fa0e7ecf18191",
+      "records": 30
+    },
+    {
+      "path": "Tables/AmbientSkeletalMeshActor.jsonl",
+      "bytes": 648,
+      "sha256": "03d7d61df6797a603d6567a5dc933a2d820695cfc24c4ee76fb1185af02740ab",
+      "records": 2
+    },
+    {
+      "path": "Tables/AnimStanceKeyMapping.jsonl",
+      "bytes": 2585,
+      "sha256": "378a1b2ae42efca7c5917f5e9ccbeb31ac976191e3a749311aeb37c7384741e8",
+      "records": 87
+    },
+    {
+      "path": "Tables/AnimStanceTransition.jsonl",
+      "bytes": 1862,
+      "sha256": "d4eb6c2e20d52a60d513f80e89bc4e9694a86c7d9d09ffda05c5fb5af5a1a707",
+      "records": 20
+    },
+    {
+      "path": "Tables/AnimToTextureData.jsonl",
+      "bytes": 153742,
+      "sha256": "796a17aa310c467fe7514c70d1408194bf3f9e4fe63b2d047fe9e8bf636d8ef3",
+      "records": 170
+    },
+    {
+      "path": "Tables/AnimationGroup.jsonl",
+      "bytes": 12921,
+      "sha256": "254a936729855e6ec1b5a5b1682db201f0af910fa5657000f1a452a1e4779aed",
+      "records": 84
+    },
+    {
+      "path": "Tables/AnimationGroupOverride.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "records": 0
+    },
+    {
+      "path": "Tables/AppearanceColor.jsonl",
+      "bytes": 77460,
+      "sha256": "ccd6bb61defa3bcbf23cea731817fa379edda5736bbb43504a04fb5e2becdaaa",
+      "records": 741
+    },
+    {
+      "path": "Tables/AreaOfEffectSpawner.jsonl",
+      "bytes": 40,
+      "sha256": "23583398bfbfe1c40936df553419c3e7d0dd091bba4f0c0b438bebb71f114b64",
+      "records": 1
+    },
+    {
+      "path": "Tables/Aura.jsonl",
+      "bytes": 4058,
+      "sha256": "648cb3437cfc3b889b5d025965e8f89e2a9886d292b04993a8a3d9deac721363",
+      "records": 22
+    },
+    {
+      "path": "Tables/BankExtend.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "records": 0
+    },
+    {
+      "path": "Tables/BasicFaction.jsonl",
+      "bytes": 6422,
+      "sha256": "8c64f9cedd3d97723dcf6d125db17912497f28f61cb7b2e03d6531a54e50876a",
+      "records": 17
+    },
+    {
+      "path": "Tables/BlueSaltChargeProduct.jsonl",
+      "bytes": 242,
+      "sha256": "ab7641c08bd8cefd65c52982baa8aefe50dd2940a8d356e49f636c05e513f1db",
+      "records": 1
+    },
+    {
+      "path": "Tables/BlueSaltPriceTier.jsonl",
+      "bytes": 1031,
+      "sha256": "36c489f6d390e84532968fedbea80a66780c766d9d013dff6a4b4e0b9ff59a90",
+      "records": 20
+    },
+    {
+      "path": "Tables/BoidsUserParameters.jsonl",
+      "bytes": 5847,
+      "sha256": "8bbb7069541f68ff5b0259442a3cb1c02a4f1c1eb968f1a894c129fa6e7d2bca",
+      "records": 10
+    },
+    {
+      "path": "Tables/Caption.jsonl",
+      "bytes": 1687878,
+      "sha256": "59a5902eb7e2d160655be18c4d62c63cdbc9217584e6547335b4419ce463f735",
+      "records": 5183
+    },
+    {
+      "path": "Tables/ChangeAppearance.jsonl",
+      "bytes": 541,
+      "sha256": "968889656ebe48c097ccea081a3cb7f14be580b532f5981bbe4b46d785c4f1b1",
+      "records": 5
+    },
+    {
+      "path": "Tables/ChangeAppearanceCondition.jsonl",
+      "bytes": 688,
+      "sha256": "5a716b1c51b07ddcecfc6afe4e285ff071282ab07804b5e79a7c5c23f64028ad",
+      "records": 4
+    },
+    {
+      "path": "Tables/ChangeWeaponSkillSlot.jsonl",
+      "bytes": 31151,
+      "sha256": "3b37c105c62a0bb70e88916966517cc6b810159379eea107ac40350dcda6a9bb",
+      "records": 168
+    },
+    {
+      "path": "Tables/ChannelEvent.jsonl",
+      "bytes": 5878,
+      "sha256": "e2717a61fd8dde7274eb6806d3f4ebcfc74299f972e470ad32fa8ff6ef9e66b1",
+      "records": 126
+    },
+    {
+      "path": "Tables/ChannelEventReward.jsonl",
+      "bytes": 14615,
+      "sha256": "b85be1d1ed414668fc2d30228eb0b4bc8f94e8ac79b332c4070df033aaf0098a",
+      "records": 186
+    },
+    {
+      "path": "Tables/Character.jsonl",
+      "bytes": 2889,
+      "sha256": "ef20884ca5eb5810185c2c80433029e5bbf1b7f51030c3595ad4fe0e445e6388",
+      "records": 6
+    },
+    {
+      "path": "Tables/CharacterBasicStat.jsonl",
+      "bytes": 323,
+      "sha256": "547a96fffae9329c90a028e5ede4bc5e4609f6e28da4160c517168b305f79c6e",
+      "records": 4
+    },
+    {
+      "path": "Tables/CharacterCameraPreset.jsonl",
+      "bytes": 1158,
+      "sha256": "46bc76c96daf74301513b78795fffbfe0b992bdc8ebd0cc91a22e13bb0397b16",
+      "records": 6
+    },
+    {
+      "path": "Tables/CharacterInteraction.jsonl",
+      "bytes": 115,
+      "sha256": "1a8d8f3222773126cca4047f9e6db802221d8acd2f5129544bc80e2806bcd336",
+      "records": 5
+    },
+    {
+      "path": "Tables/CharacterLevel.jsonl",
+      "bytes": 10802,
+      "sha256": "564ddac0f5c55a4499bf73a93c67ccddd0da4c2caed8971d746eeddb39316f84",
+      "records": 40
+    },
+    {
+      "path": "Tables/ChattingCommand.jsonl",
+      "bytes": 1527,
+      "sha256": "061fb0d26b0d2b03957a9595a59b286f1bed801c9fbcaa0031e4174610bdc75c",
+      "records": 16
+    },
+    {
+      "path": "Tables/ChattingCommandAlias.jsonl",
+      "bytes": 23168,
+      "sha256": "39b33af492ae7943070d5b8e3e4bdab36209535383084de93ba8fe10b78079e5",
+      "records": 236
+    },
+    {
+      "path": "Tables/ClassActionForm.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "records": 0
+    },
+    {
+      "path": "Tables/ClassActionFormVariable.jsonl",
+      "bytes": 329,
+      "sha256": "d0cb818d8a6a202cf33a6835176bee1c5fc7c59b9c176cca5ce50ab2d97f0f06",
+      "records": 6
+    },
+    {
+      "path": "Tables/ClothesComponentData.jsonl",
+      "bytes": 1879,
+      "sha256": "06506ceb829468916224307369a8206493f38656dd60648f5741e9a63eb45511",
+      "records": 14
+    },
+    {
+      "path": "Tables/ClothesPack.jsonl",
+      "bytes": 69532,
+      "sha256": "8ba594020d2022ca7b3af365bc6908c0034df49d70c9b13a2443df7d14e2f177",
+      "records": 491
+    },
+    {
+      "path": "Tables/Company.jsonl",
+      "bytes": 614,
+      "sha256": "43d92ac49295a5d4f69b0e82f9f3ec8c0bdd696b9840fb9b37979b518e41e7c7",
+      "records": 5
+    },
+    {
+      "path": "Tables/CompanyPosition.jsonl",
+      "bytes": 7459,
+      "sha256": "5e502ad846a86323dd8a6c607c42139c0498afd62545c5e903a68cb566d10afe",
+      "records": 28
+    },
+    {
+      "path": "Tables/ConditionalSkillEffect.jsonl",
+      "bytes": 57258,
+      "sha256": "725efbdd2aad06a02e43bb653c85436f1f1669f15aa97643a80762292fc4b41d",
+      "records": 199
+    },
+    {
+      "path": "Tables/ContentUI.jsonl",
+      "bytes": 22139,
+      "sha256": "954d7cf13c2faafda7b9438bb0fcc39bc8354816a0ad0f7bd1219af1c1c5ee02",
+      "records": 123
+    },
+    {
+      "path": "Tables/ContentUIMenu.jsonl",
+      "bytes": 449,
+      "sha256": "fc680787eadfaa884e636bca8a85174039aee5eac418ad7b95f370de57cf5322",
+      "records": 4
+    },
+    {
+      "path": "Tables/ContentsEffect.jsonl",
+      "bytes": 15767,
+      "sha256": "760b8f43530e75a4c279a058475d00ed5f3e76ea1be67bacc4a2d58148e35055",
+      "records": 196
+    },
+    {
+      "path": "Tables/ContentsGuide.jsonl",
+      "bytes": 62255,
+      "sha256": "23288d6d2bbb34736fc0607f15bc81e1b9c961d4ec09344cdeef6d4b7832ae54",
+      "records": 388
+    },
+    {
+      "path": "Tables/ContentsGuideCondition.jsonl",
+      "bytes": 214874,
+      "sha256": "7cd09c2ad106700f6178ae27b865829d55c10137c7857da736f1748bc8892671",
+      "records": 1105
+    },
+    {
+      "path": "Tables/CookRecipe.jsonl",
+      "bytes": 18898,
+      "sha256": "f19b53d3bb73ef82cf6d78d5c7b49fde14dd8c393e77c91b9867a68f5d9d80ed",
+      "records": 118
+    },
+    {
+      "path": "Tables/CreditRoll.jsonl",
+      "bytes": 67335,
+      "sha256": "4df8150f592e07e65f12f8e28d1b7d4f2c0ee0fb6d015688345eb0191c010e65",
+      "records": 379
+    },
+    {
+      "path": "Tables/CustomizingCamera.jsonl",
+      "bytes": 95981,
+      "sha256": "64290c430e95645eea7e989ddb96a9117d8d9ba83f653946e94b3748edb1dbd9",
+      "records": 111
+    },
+    {
+      "path": "Tables/CustomizingCameraLight.jsonl",
+      "bytes": 4348,
+      "sha256": "a461d5bdcd2d914c0ed372c7cb850ee4605df38da4fcbca117b2b17f11680754",
+      "records": 24
+    },
+    {
+      "path": "Tables/CustomizingCategory.jsonl",
+      "bytes": 1858,
+      "sha256": "acc2da4c8f85c37795f727577da00df0e74fad800a3cbf650dd1d68e11177393",
+      "records": 24
+    },
+    {
+      "path": "Tables/CustomizingColorData.jsonl",
+      "bytes": 71885,
+      "sha256": "18f17e49ecd893fa62fedafe4d0483806d0dd0e10ab4b5ffa8e48bcf2a0621af",
+      "records": 271
+    },
+    {
+      "path": "Tables/CustomizingComponent.jsonl",
+      "bytes": 68881,
+      "sha256": "dbdee3efed5c362be9b5461e9be28af0a60c8e1eaa6ceb82b794850ee045fe4e",
+      "records": 177
+    },
+    {
+      "path": "Tables/CustomizingMaterial.jsonl",
+      "bytes": 16515,
+      "sha256": "61eba71b970ce237f683e613cc149eec92813fc1095848dd79cb772051408c34",
+      "records": 80
+    },
+    {
+      "path": "Tables/CustomizingPreset.jsonl",
+      "bytes": 6870820,
+      "sha256": "5232515dc4469ba7182c41eb06fd9e4eb309df461af3cef3137d1ba62207adf7",
+      "records": 1254
+    },
+    {
+      "path": "Tables/CustomizingRandomize.jsonl",
+      "bytes": 5625,
+      "sha256": "6678dfe10014f2e38d84e9e4fc9e91fc104148202b46e3b76bd94855707a363c",
+      "records": 6
+    },
+    {
+      "path": "Tables/CustomizingSliderData.jsonl",
+      "bytes": 179529,
+      "sha256": "d7353018f5dae11898df8165b1755b00db9a8a93ab116ced974f2137eb76824f",
+      "records": 750
+    },
+    {
+      "path": "Tables/CustomizingTileData.jsonl",
+      "bytes": 670707,
+      "sha256": "4f7fe45fedaa644282797e9d57aff5840f5ce3d9a027019d6b13bb11a951d755",
+      "records": 1760
+    },
+    {
+      "path": "Tables/CutScene.jsonl",
+      "bytes": 123231,
+      "sha256": "ef1588b460d9a0ee4afa3598223c80a148385e56c9afeb06d3bb74e593abea1e",
+      "records": 516
+    },
+    {
+      "path": "Tables/CutSceneBind.jsonl",
+      "bytes": 15111,
+      "sha256": "fade835388b838c793f1ce74e079b291340428c53f620708077977be550f8898",
+      "records": 43
+    },
+    {
+      "path": "Tables/CutScenePreset.jsonl",
+      "bytes": 115830,
+      "sha256": "9ec4d6651be0a6f092172858a4686c7d0d748bc8bf491c12d4f6400a26ae7748",
+      "records": 813
+    },
+    {
+      "path": "Tables/CutSceneSequence.jsonl",
+      "bytes": 305493,
+      "sha256": "205ff291f6af20b618c1a4fe07697eb7dc7937ebed964a7d742c9e8321de71b8",
+      "records": 1174
+    },
+    {
+      "path": "Tables/CutSceneSequenceVariation.jsonl",
+      "bytes": 34468,
+      "sha256": "80181b24154cc1f7eb6b5702750ea34fd64200442978d21a17b9bca342153bbd",
+      "records": 175
+    },
+    {
+      "path": "Tables/CutSceneSequenceVariationKey.jsonl",
+      "bytes": 959,
+      "sha256": "cc0910bc0cd1c37d5a5cf3b5eda83ace25d214aa0b1e71f8f8241a87ff57e36d",
+      "records": 12
+    },
+    {
+      "path": "Tables/DestructibleObject.jsonl",
+      "bytes": 15682,
+      "sha256": "18ea44fc8d83227b4f19155c96d20a5cf2bdd8dfd86597b45c995c060e82df41",
+      "records": 86
+    },
+    {
+      "path": "Tables/DialogExecuteAfterClose.jsonl",
+      "bytes": 114,
+      "sha256": "7205f26632f9eeec6ab9e22576849a66d0478cf4c762525ed59df926346f5a52",
+      "records": 3
+    },
+    {
+      "path": "Tables/Dialogue.jsonl",
+      "bytes": 2526957,
+      "sha256": "1152e642f2455368e2971b2b20755e3557dad69e3bf03493ee79c506d52b0aa3",
+      "records": 7888
+    },
+    {
+      "path": "Tables/DialogueCondition.jsonl",
+      "bytes": 751259,
+      "sha256": "064814443f421bd0c8a7905b82e0c66dbd8f807ed940c945f40bc97bd4e7865c",
+      "records": 3562
+    },
+    {
+      "path": "Tables/DialogueDirection.jsonl",
+      "bytes": 614,
+      "sha256": "c0661df367ecb44189a4746ef8c7f933b9a4e6ed6bd347d3e134da2612c6ec3c",
+      "records": 5
+    },
+    {
+      "path": "Tables/DialogueErrorCode.jsonl",
+      "bytes": 5466,
+      "sha256": "7e8b19665a7212e1bc995d2c92fc0523deabf5c375c12280083d96e7bf8a9ddd",
+      "records": 70
+    },
+    {
+      "path": "Tables/DialogueSelection.jsonl",
+      "bytes": 1192058,
+      "sha256": "7f5e47e91957408fa67729bea3ccecf38849c5520187a44e211c8df9b12fa072",
+      "records": 5807
+    },
+    {
+      "path": "Tables/DiscoveryCondition.jsonl",
+      "bytes": 24571,
+      "sha256": "536ba4b891b3c6cf49e762d52875789db133a3137218c8fa3077ace4c232a271",
+      "records": 216
+    },
+    {
+      "path": "Tables/Doodad.jsonl",
+      "bytes": 578628,
+      "sha256": "2c810d93c471354033e197aca6a1313b543559c934b603a4de18f2a4181da6a7",
+      "records": 2207
+    },
+    {
+      "path": "Tables/DoodadCamMotionSet.jsonl",
+      "bytes": 3288,
+      "sha256": "583215adb455920d3839335a778e329e6dbfd2466dc7e0b9f081cfe722ff6d58",
+      "records": 21
+    },
+    {
+      "path": "Tables/DoodadMateInteraction.jsonl",
+      "bytes": 430,
+      "sha256": "b85c06f6155e65711f872365cc5489bd6d3defd49640fcd434b657bba0ee4b9c",
+      "records": 5
+    },
+    {
+      "path": "Tables/DoodadPhase.jsonl",
+      "bytes": 346705,
+      "sha256": "6b9fc9b302f308bc838c7c37913f2a3de6745543a21681b22b4d7862133d96c7",
+      "records": 3171
+    },
+    {
+      "path": "Tables/DoodadPhaseFlow.jsonl",
+      "bytes": 673426,
+      "sha256": "49101307cfd56c7e57405f4fe9b67e1a7b5ae2cf64248ec0bd1f7349b5ca7d07",
+      "records": 2976
+    },
+    {
+      "path": "Tables/DrawBox.jsonl",
+      "bytes": 36913,
+      "sha256": "7a5b33f32952925334189ebe5c44f036588addc8bf622efc24753b7820fe60c3",
+      "records": 335
+    },
+    {
+      "path": "Tables/Emotion.jsonl",
+      "bytes": 1217,
+      "sha256": "09c9e7f0f1c25ea1899450cce03ad7402e12a912486c028987165e03fa6550cf",
+      "records": 12
+    },
+    {
+      "path": "Tables/EnumIcon.jsonl",
+      "bytes": 25244,
+      "sha256": "56d657a1c12dbded73a9d39d6de9c662f79f74b603ef9d5e1c635dd7bec3ca67",
+      "records": 373
+    },
+    {
+      "path": "Tables/EquipStatCondition.jsonl",
+      "bytes": 7381,
+      "sha256": "df2f520b66b16cac9b939135032708be38d0286de11ab2f797ed3c167e59a0d6",
+      "records": 63
+    },
+    {
+      "path": "Tables/EquipmentGrade.jsonl",
+      "bytes": 3498,
+      "sha256": "da320413c069c4d1c0d55a61ea0ff8302f6f4ba58d2ad51cf789ca402617c97b",
+      "records": 6
+    },
+    {
+      "path": "Tables/EquipmentSkills.jsonl",
+      "bytes": 253,
+      "sha256": "0de3d2b4f7ba6cbed29bc04a5423d652f0cf064e242265413fc52c20ae41557f",
+      "records": 4
+    },
+    {
+      "path": "Tables/ErrorCode.jsonl",
+      "bytes": 46840,
+      "sha256": "32e73287cf48345cd4f7b532d289639897fa73ead0d57c524c0df695ba5ca988",
+      "records": 700
+    },
+    {
+      "path": "Tables/ExpertiseLvBenefit.jsonl",
+      "bytes": 7636,
+      "sha256": "e0c9eb5e635e38791c6cd27bce7b009d44478f50842d257cb0f3b62b3fe01a23",
+      "records": 50
+    },
+    {
+      "path": "Tables/ExpertiseLvBenefitDesc.jsonl",
+      "bytes": 300,
+      "sha256": "28e8679973334b7f617a8a51d1ffd45cef858ee4059cada63f6190bfc006f636",
+      "records": 20
+    },
+    {
+      "path": "Tables/ExpertiseReqItemCount.jsonl",
+      "bytes": 209,
+      "sha256": "e6689aefd0d241592780c2f4afd6d2b250f5b4f8f1455c4c05279d9ce285f084",
+      "records": 5
+    },
+    {
+      "path": "Tables/ExpertiseReward.jsonl",
+      "bytes": 377571,
+      "sha256": "dd5cd45b8f2092ea1a7eb8e9f3794dc69b0ebefe4a3a9a3eb8b1a4a187088d4c",
+      "records": 4600
+    },
+    {
+      "path": "Tables/ExpertiseSkill.jsonl",
+      "bytes": 1451,
+      "sha256": "04a2333038e593b55a0a4a25372f9034ef48a1ad7d7d79131005b0e785885e86",
+      "records": 15
+    },
+    {
+      "path": "Tables/ExtendedAppearanceSettings.jsonl",
+      "bytes": 3567,
+      "sha256": "219fc001284d46f3420b7309323c8a2dfb6bf24762f07c3bfd1e0aaffcd6bc90",
+      "records": 15
+    },
+    {
+      "path": "Tables/FacialExpression.jsonl",
+      "bytes": 447505,
+      "sha256": "64693bb13fdd8856a3951d9ba24106c5e84fc44f2bb11a7a4f8b8f253aaa4e54",
+      "records": 2335
+    },
+    {
+      "path": "Tables/FacialIdle.jsonl",
+      "bytes": 8164,
+      "sha256": "a3f3e8f2bd0ec2049b80b23e6df2ea16b4ec7a974bb148ea17e0ee82b3e77c3b",
+      "records": 49
+    },
+    {
+      "path": "Tables/FacialModel.jsonl",
+      "bytes": 992,
+      "sha256": "e7cac6a1147806ab9c9f299ec7b02fe606d2781f28f2ab573b660d3430a3bc22",
+      "records": 11
+    },
+    {
+      "path": "Tables/FeatureMatrix.jsonl",
+      "bytes": 1143,
+      "sha256": "4d5d0343cd7ba727288a73d075c590a97ec3ce0bec96c951d2cd82cd95e83bb6",
+      "records": 18
+    },
+    {
+      "path": "Tables/FlightTool.jsonl",
+      "bytes": 4608,
+      "sha256": "44eff9ab25d858ba3a3caecffd83a0bec8053b6afeff9dc2692cdc5548965d10",
+      "records": 7
+    },
+    {
+      "path": "Tables/FogArea.jsonl",
+      "bytes": 245800,
+      "sha256": "bf79b1f356478beba27e027a4022fb7ec6f229b2f0c47653c1cafe8b62235d34",
+      "records": 1063
+    },
+    {
+      "path": "Tables/FoliageDesign.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "records": 0
+    },
+    {
+      "path": "Tables/ForbiddenContent.jsonl",
+      "bytes": 1166,
+      "sha256": "f451a087620293974e33ce607043f846eff741824c6e6a11529b92af43027bb1",
+      "records": 11
+    },
+    {
+      "path": "Tables/GameAnimKeyMapping.jsonl",
+      "bytes": 223414,
+      "sha256": "8194d96ffcaff5b4740ae88145aed7a93992780e3c20d7862cc77f1d3665af41",
+      "records": 3821
+    },
+    {
+      "path": "Tables/GameSetting.jsonl",
+      "bytes": 13659,
+      "sha256": "682fcd6379209a4b06f75600dd9e736df82ee1608bb597940a280f15084efaee",
+      "records": 58
+    },
+    {
+      "path": "Tables/GameVariable.jsonl",
+      "bytes": 23573,
+      "sha256": "710b6cd567821eca4e45ee3a9f6feea6e341881b5ac44becd941b93eec37b639",
+      "records": 439
+    },
+    {
+      "path": "Tables/Gathering.jsonl",
+      "bytes": 5995,
+      "sha256": "67779cda6cab971863a7be8baa6e8545ceee2873cbb8a305d27c15df92baf350",
+      "records": 26
+    },
+    {
+      "path": "Tables/GatheringDesign.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "records": 0
+    },
+    {
+      "path": "Tables/GatheringModel.jsonl",
+      "bytes": 52668,
+      "sha256": "f0fa11f9fb869cefe228cc1dbfab798acba367795c8f5ba358344b1fca88503b",
+      "records": 147
+    },
+    {
+      "path": "Tables/Guard.jsonl",
+      "bytes": 8708,
+      "sha256": "a4aea657ad058c0df53365dc684def97e137ec0396fd3f726e4ae4fb70e1419f",
+      "records": 52
+    },
+    {
+      "path": "Tables/GuideDescription.jsonl",
+      "bytes": 833,
+      "sha256": "9a7b2d5005f61f0c90355b2e8b27d20f38d33b3954bc1b4fc0bf40f976b47508",
+      "records": 61
+    },
+    {
+      "path": "Tables/GuildLevel.jsonl",
+      "bytes": 450,
+      "sha256": "a8ac5344aefd50fc8c160699665e4166d42f1ef2d0aab2799bb288604b71966a",
+      "records": 5
+    },
+    {
+      "path": "Tables/HersanderStatue.jsonl",
+      "bytes": 1658,
+      "sha256": "90b5ac468b2510fef4c745417d97303ce9849454def9f6fcaf318938681340cb",
+      "records": 3
+    },
+    {
+      "path": "Tables/HouseCustomTextureData.jsonl",
+      "bytes": 750,
+      "sha256": "a36dd38ef664afd7fd11a3191279352ce1b0e0bd425aa765081dd44c8c62a3c1",
+      "records": 5
+    },
+    {
+      "path": "Tables/Housing.jsonl",
+      "bytes": 2510,
+      "sha256": "bad49ce063d9cbddc56a9499139432b0a8f0ccc307aa77adf49600e49d242244",
+      "records": 25
+    },
+    {
+      "path": "Tables/HousingGridPanel.jsonl",
+      "bytes": 1210809,
+      "sha256": "bd51f34dd2fd64c94bb44d94e4cf7eb1fc38e3f5cef7c1da0c83cef41877340d",
+      "records": 3872
+    },
+    {
+      "path": "Tables/HousingModelPart.jsonl",
+      "bytes": 29080,
+      "sha256": "3c89c657f51aa0287e8b9c09ef0ef5487d0401a73e030af0e0b4428458e5f9ed",
+      "records": 139
+    },
+    {
+      "path": "Tables/HousingModelPartAddOn.jsonl",
+      "bytes": 1468,
+      "sha256": "94e8a766e6120cd9079eb7dda382661e3afaa122b83de5dba454b204469d2c32",
+      "records": 10
+    },
+    {
+      "path": "Tables/HousingPartitionWallAttach.jsonl",
+      "bytes": 671,
+      "sha256": "ccb5d391ac5f391e24f38b99d518553931eaef0415c358f8397b028395fc4169",
+      "records": 11
+    },
+    {
+      "path": "Tables/HousingPreset.jsonl",
+      "bytes": 12632,
+      "sha256": "b5f88bc697547eec1ac76786201c5e26c087aa270134dbbd9d5f35c7e2c0e35e",
+      "records": 22
+    },
+    {
+      "path": "Tables/HousingPresetDoodad.jsonl",
+      "bytes": 521984,
+      "sha256": "b2f9baf177eb556a25ae1ca724dc0a96b8587039228e94fb191349ab401a3a79",
+      "records": 2958
+    },
+    {
+      "path": "Tables/HousingRentCost.jsonl",
+      "bytes": 570,
+      "sha256": "b8fe75f027a571c1a7b1dd4faf078793e74733f16e96b993548cd08a2895fea0",
+      "records": 4
+    },
+    {
+      "path": "Tables/HousingSite.jsonl",
+      "bytes": 16960,
+      "sha256": "60459c31ca97db62a095a1e77792b1de386cf844e3c0d3c9baae1f83c7981242",
+      "records": 71
+    },
+    {
+      "path": "Tables/HousingSiteDesign.jsonl",
+      "bytes": 214,
+      "sha256": "a8f95dcc09bae526438fd83924a8a2f090db60efa350036111a62ff283149cd9",
+      "records": 3
+    },
+    {
+      "path": "Tables/HousingUpgrade.jsonl",
+      "bytes": 2152,
+      "sha256": "0b47056ad7de6b09c4db1c3e0007cacb5f2cad0a16e5925d55d75ef3a47e0a1c",
+      "records": 8
+    },
+    {
+      "path": "Tables/Icon.jsonl",
+      "bytes": 780893,
+      "sha256": "ec52aeabdb430b1e7c5e2fa19642dfc346c3bfdbf96df2b5901710b6d2db3969",
+      "records": 3994
+    },
+    {
+      "path": "Tables/Immune.jsonl",
+      "bytes": 2699,
+      "sha256": "b1cc1a0202f614be3feb0c6006e4a64d8c2c8ca0b8cf7afe956ff7b2824144a8",
+      "records": 30
+    },
+    {
+      "path": "Tables/Interaction.jsonl",
+      "bytes": 183747,
+      "sha256": "07c3cf06327bd39d9fc74bc08aa464d634383b25890928e3eeca7c1f085e8b79",
+      "records": 850
+    },
+    {
+      "path": "Tables/InteractionAnim.jsonl",
+      "bytes": 32105,
+      "sha256": "d8c49ab11d6a246ae4b0064b0fd3c10cdcfc8f530f4c5393f65b9843043feaf3",
+      "records": 132
+    },
+    {
+      "path": "Tables/InteractionAnimDetail.jsonl",
+      "bytes": 40168,
+      "sha256": "432d1206dc4203e760082da8895fce6ba27dabcf6faad5d4a38011bfb7a4b462",
+      "records": 395
+    },
+    {
+      "path": "Tables/InteractionCameraSequence.jsonl",
+      "bytes": 497,
+      "sha256": "11d3aaf4c7f994b8c3ee9bde600394b3fdc0cae543df5855a2a81c9304a9c13f",
+      "records": 7
+    },
+    {
+      "path": "Tables/InteractionCondition.jsonl",
+      "bytes": 92430,
+      "sha256": "516f1275fcd47b074ea7760b7fb9ba06a13d4e1d59e5c972a39a48f0405de362",
+      "records": 485
+    },
+    {
+      "path": "Tables/InteractionUseOpenUi.jsonl",
+      "bytes": 7653,
+      "sha256": "d59b6dd557bc3b42d353237243608e12c43ba839b73cf87ad93f67a49927e5e5",
+      "records": 58
+    },
+    {
+      "path": "Tables/Item.jsonl",
+      "bytes": 2614288,
+      "sha256": "ff447f6347130283d497583e2a4e0b947440be86b4ac2e9855467dc2b16b2251",
+      "records": 2365
+    },
+    {
+      "path": "Tables/ItemAttribute.jsonl",
+      "bytes": 216205,
+      "sha256": "210a9cb1e3fbd66765f2f896d268e894542edf8ca141c78caa11442523fd4aa3",
+      "records": 306
+    },
+    {
+      "path": "Tables/ItemCategory.jsonl",
+      "bytes": 1004,
+      "sha256": "bd93c2fdc2a59108e2c5a25d5e8dfeb495c8a520caf1126e33d98bee05804cf0",
+      "records": 16
+    },
+    {
+      "path": "Tables/ItemCookMaterial.jsonl",
+      "bytes": 1493,
+      "sha256": "702f7859baf7cffdb8bfb2a0dd8c3caef4f9aa5b3fab21982c21fb79925fbe94",
+      "records": 21
+    },
+    {
+      "path": "Tables/ItemCraft.jsonl",
+      "bytes": 110095,
+      "sha256": "9b35b98550e72d21969c1cb80cc4f636fa8e1016a5984e22800dc87ea17ae2a8",
+      "records": 238
+    },
+    {
+      "path": "Tables/ItemCraftPack.jsonl",
+      "bytes": 12588,
+      "sha256": "c760c615a8d372ba76a8d15fc82f3e6928413bb2304f3685dd650076a9076a1b",
+      "records": 302
+    },
+    {
+      "path": "Tables/ItemDiscovery.jsonl",
+      "bytes": 990,
+      "sha256": "2b98fffa67c8b4b0d093946593bf76fb954b7a89cdc7cb2d00dd3632d1367787",
+      "records": 4
+    },
+    {
+      "path": "Tables/ItemGainBanner.jsonl",
+      "bytes": 12742,
+      "sha256": "fb8a3906234bc13313ed6c202a086c523a425cdab4f5f37c3f2949ea9b257e07",
+      "records": 166
+    },
+    {
+      "path": "Tables/ItemLimit.jsonl",
+      "bytes": 198,
+      "sha256": "90257deb654d2d6a52560ef0e655bc9c2aa8905d72ff03cc864cac383bc78eac",
+      "records": 2
+    },
+    {
+      "path": "Tables/ItemMarketAllowList.jsonl",
+      "bytes": 13803,
+      "sha256": "d02f34da16e6323815783976d86e5835b3f6d8c278f1d7b8ad854b663eee9d65",
+      "records": 177
+    },
+    {
+      "path": "Tables/ItemMarketCategory.jsonl",
+      "bytes": 1832,
+      "sha256": "cb10479c72a542274d098bd481a1f5e409c53bc77c8ec6c38226439ec463c24f",
+      "records": 15
+    },
+    {
+      "path": "Tables/ItemOption.jsonl",
+      "bytes": 7644,
+      "sha256": "5013173e27b5179684672fa8fd26c0a4b815a0b1ee052a4fc8c6406130a906d3",
+      "records": 156
+    },
+    {
+      "path": "Tables/ItemOptionValue.jsonl",
+      "bytes": 29305,
+      "sha256": "504b757a5d70e9a69bc33ae9b8863b3ce6b6a0a13e3362f05cae9955e9c391ff",
+      "records": 168
+    },
+    {
+      "path": "Tables/ItemPolish.jsonl",
+      "bytes": 33035,
+      "sha256": "8a05a58b82f0116dd30f00f45ea7fac5edfc430c29799110b5dbabc9b4b17705",
+      "records": 125
+    },
+    {
+      "path": "Tables/ItemPolishIncreaseValue.jsonl",
+      "bytes": 12966,
+      "sha256": "314b0edc5ea025f4ab42f3bcfea6f3490733ced66a14b213f7793930b3f14f6a",
+      "records": 200
+    },
+    {
+      "path": "Tables/ItemRepairCost.jsonl",
+      "bytes": 42611,
+      "sha256": "6a7d5ccd4f06a62cb9621f36ea0942c000998be377069836f5949f0e9138d065",
+      "records": 258
+    },
+    {
+      "path": "Tables/ItemSocket.jsonl",
+      "bytes": 35291,
+      "sha256": "ff1c5c463dc136082f11f977ded83024f05b3f43bed21da74a0bcb44ef1a4307",
+      "records": 138
+    },
+    {
+      "path": "Tables/ItemSource.jsonl",
+      "bytes": 3055,
+      "sha256": "3847d8e5f1b6ced61c7b4a160c24daf23e843abaca7711d965a4a012aae5a33a",
+      "records": 91
+    },
+    {
+      "path": "Tables/JewelOption.jsonl",
+      "bytes": 23956,
+      "sha256": "d061883735fc3e77946a74cb0fa3d440b45ca2bb0f8809cb5cfd77bfef3961d5",
+      "records": 90
+    },
+    {
+      "path": "Tables/KeyBinding.jsonl",
+      "bytes": 61574,
+      "sha256": "56cd78be508a8cfe39cc63f3e0b146abbb46b2419c97beb99adeeb09cbc596e9",
+      "records": 316
+    },
+    {
+      "path": "Tables/KeyBindingAction.jsonl",
+      "bytes": 459654,
+      "sha256": "910383bc0cfc06200549545bda01a21893c9bb4fbb7637edb93d518fe1cc16dd",
+      "records": 2293
+    },
+    {
+      "path": "Tables/KeyBindingAxis.jsonl",
+      "bytes": 47732,
+      "sha256": "feab382718b7c83d56911376ede5e1ffb90c7ea253abd943b9635e07c5afac43",
+      "records": 207
+    },
+    {
+      "path": "Tables/KeyBindingKeyInputLayer.jsonl",
+      "bytes": 10103,
+      "sha256": "f3d0e74a6c9d6e650b6ed350cd1b4762dd83f9b01dd95142a6e103fe420085db",
+      "records": 102
+    },
+    {
+      "path": "Tables/KeyButtonUseIcon.jsonl",
+      "bytes": 4624,
+      "sha256": "b93e04b4320df303993c873e7f1daf31f87bf214e9b18af81e7080063ca00ab1",
+      "records": 71
+    },
+    {
+      "path": "Tables/KeyButtonUseKeyBinding.jsonl",
+      "bytes": 56559,
+      "sha256": "d043628dea2452e8a1824915efe222d50d14432f3ff0437ae4d919d5c3351d2c",
+      "records": 375
+    },
+    {
+      "path": "Tables/LevelTriggerCondition.jsonl",
+      "bytes": 47063,
+      "sha256": "cb73549a5837523cfd48df522439accaa79a7e31b1060e5ca8c7425dd4d923c6",
+      "records": 206
+    },
+    {
+      "path": "Tables/LevelTriggerTask.jsonl",
+      "bytes": 10242,
+      "sha256": "11c457789572377c4f840183a72f1a8dc14cc4512b8fa0c0e23ccf5de9de0901",
+      "records": 113
+    },
+    {
+      "path": "Tables/LevelTriggerVolume.jsonl",
+      "bytes": 9209,
+      "sha256": "79c17f58cc3fbf9d615de84e25ac66220999e273e5125d91169a7a64f158518d",
+      "records": 82
+    },
+    {
+      "path": "Tables/LoadingScreen.jsonl",
+      "bytes": 4891,
+      "sha256": "23a81a225aab304d68416c1d49b7a998b91f3db2661b1e3e61d1980930e5bf17",
+      "records": 49
+    },
+    {
+      "path": "Tables/LobbyCamera.jsonl",
+      "bytes": 2311,
+      "sha256": "5d8d744c23e819c1508ce2966d654d05587edef6c4a01d8faec434ec670369af",
+      "records": 12
+    },
+    {
+      "path": "Tables/LobbyCharacterAnimKey.jsonl",
+      "bytes": 1022,
+      "sha256": "a20bcf78444cfc99f0ff55b4bec25e1505a815efec699c57863660ef1bb1b626",
+      "records": 4
+    },
+    {
+      "path": "Tables/LobbyCharacterFacialAnimKey.jsonl",
+      "bytes": 6608,
+      "sha256": "b9442ebd437079f5f94520059769aee2839c5d9f901ccf9b23c9a62e6b701ee6",
+      "records": 16
+    },
+    {
+      "path": "Tables/LobbySpawnPoint.jsonl",
+      "bytes": 1796,
+      "sha256": "5e8cd552b7d1da3830a4544aaa7ccef954b312da43c0adc6c5ec78c2b9b7ecd3",
+      "records": 16
+    },
+    {
+      "path": "Tables/LootCondition.jsonl",
+      "bytes": 1498391,
+      "sha256": "d355400f397d8dc259f700e45b27c392b5cc053334cd7b45df153ceeda35757a",
+      "records": 8087
+    },
+    {
+      "path": "Tables/LootItem.jsonl",
+      "bytes": 2112501,
+      "sha256": "c3dab50e80061fd43f86a3109fb1d4a45b540ef95242ce849aa08aef88e89a8e",
+      "records": 15177
+    },
+    {
+      "path": "Tables/LootPack.jsonl",
+      "bytes": 139448,
+      "sha256": "5789434314c716a9b0a7b464ba990ad2b83f64ffa71d7a09bd6099296522a2e8",
+      "records": 4465
+    },
+    {
+      "path": "Tables/LootWorld.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "records": 0
+    },
+    {
+      "path": "Tables/MailTemplate.jsonl",
+      "bytes": 342,
+      "sha256": "41c5990dec6d618e8b2fd4a431123f532e79117cb8dfdfaf6b32a3b9a20473ba",
+      "records": 9
+    },
+    {
+      "path": "Tables/MaintainEffect.jsonl",
+      "bytes": 18486,
+      "sha256": "ba085a02f8b21bcfa593696f407f60f4c9307b713b709e2e6cdaf0f73beb8fac",
+      "records": 246
+    },
+    {
+      "path": "Tables/MaintainStat.jsonl",
+      "bytes": 18443,
+      "sha256": "953c49bee2ff9d58c3204e458d7a046b8f0527ffc57b798c63afd47120118516",
+      "records": 253
+    },
+    {
+      "path": "Tables/MakeTradeGood.jsonl",
+      "bytes": 18733,
+      "sha256": "5375ffab5a54ee3ad30739765ffebb4df61ed36f392225062e5e04d5ab25276c",
+      "records": 68
+    },
+    {
+      "path": "Tables/Map.jsonl",
+      "bytes": 299018,
+      "sha256": "8e2511506c5c8b58c858e3a71676efe08c0ac7cff0199cab792cd8d53e5ee364",
+      "records": 212
+    },
+    {
+      "path": "Tables/MapArtDataLayerControl.jsonl",
+      "bytes": 2431,
+      "sha256": "19735e73cc26c52d488f52644022a01651375430669a42792c554c4e6ae10c64",
+      "records": 14
+    },
+    {
+      "path": "Tables/MapArtDataLayerRuntimeGroup.jsonl",
+      "bytes": 2788,
+      "sha256": "687d9ea06a47f251a21713baa2aa4fd4691ce6f0cdbbdb48cc15ad3790a914fc",
+      "records": 24
+    },
+    {
+      "path": "Tables/MapCondition.jsonl",
+      "bytes": 60569,
+      "sha256": "1e6a719f6dae8b49ad6dc6dbc2a6be1af9e72ce9c6c853340592ee956a3875e7",
+      "records": 286
+    },
+    {
+      "path": "Tables/MapMarker.jsonl",
+      "bytes": 23318,
+      "sha256": "91d041f735c1aab18b87c53fe9a124af39021ff64fd3ab6ad15cdbcd2ba62197",
+      "records": 60
+    },
+    {
+      "path": "Tables/MapMarkerAdventureObject.jsonl",
+      "bytes": 1716,
+      "sha256": "5e8ee6ee19c9e371689b63311283e8f8928d5d189818d92ef8a7aac350bcead3",
+      "records": 8
+    },
+    {
+      "path": "Tables/MapMoveCutScene.jsonl",
+      "bytes": 1574,
+      "sha256": "da1933efd1680aee43739b2dfc9b92c7b371c60fa519f0289334ff3754afa755",
+      "records": 14
+    },
+    {
+      "path": "Tables/MapMoveCutSceneCondition.jsonl",
+      "bytes": 3719,
+      "sha256": "8ca4c1a43c3afe48f9c09c9c598c2b6a9607ff97a1609fc69172f948ff4ab731",
+      "records": 18
+    },
+    {
+      "path": "Tables/MateIntimateLevel.jsonl",
+      "bytes": 464,
+      "sha256": "771a49cbd2624c55a1af75a98294503bdcc38a56cfd31a0682286eb6fe90193f",
+      "records": 8
+    },
+    {
+      "path": "Tables/MateNpc.jsonl",
+      "bytes": 190,
+      "sha256": "9be34e9becfb4283e86e96e79abd045bc7ae386a5d35d3ed9aeb7287054a6866",
+      "records": 2
+    },
+    {
+      "path": "Tables/Memo.jsonl",
+      "bytes": 57481,
+      "sha256": "9f109de65b239ca0e4f6920c5bbe1307dec90f4de398feb84ddff5e19d65cc21",
+      "records": 508
+    },
+    {
+      "path": "Tables/MemoImage.jsonl",
+      "bytes": 1927,
+      "sha256": "f4c8b66d9eac10c9e160c1edb1e550cbe937aa0f53b19cba79bfe8458d638d12",
+      "records": 14
+    },
+    {
+      "path": "Tables/Money.jsonl",
+      "bytes": 260,
+      "sha256": "8c5992da7109e022a616e29bf82c569a91e1bd76e853e0c6e3fb14e32589bf60",
+      "records": 2
+    },
+    {
+      "path": "Tables/MotionGroup.jsonl",
+      "bytes": 8026,
+      "sha256": "f769628fc1a409eb47288dfb96ac8c2d0bc9b1f8808d0da341776b707397cec6",
+      "records": 12
+    },
+    {
+      "path": "Tables/NameTag.jsonl",
+      "bytes": 6928,
+      "sha256": "54b997168952e99d8da7e8e83ce87de1a93121a1a7dd435851e654302a91260e",
+      "records": 29
+    },
+    {
+      "path": "Tables/NavAgent.jsonl",
+      "bytes": 234,
+      "sha256": "71e9be23a07191c8cfa11473cd9cc70bfa5e64123a7b280f98fbf61c872a380b",
+      "records": 4
+    },
+    {
+      "path": "Tables/Npc.jsonl",
+      "bytes": 6236717,
+      "sha256": "3953c1bcd148f7dfbe83c6227891851d1b1bdd3939662bdf689974ba9e18a3a8",
+      "records": 7163
+    },
+    {
+      "path": "Tables/NpcAiPhaseTransition.jsonl",
+      "bytes": 92935,
+      "sha256": "7a4f2985c1d0f6e1b4387b397d82cb739b1b4a159ee73c0644fa7f087fe6fe7c",
+      "records": 1137
+    },
+    {
+      "path": "Tables/NpcCondition.jsonl",
+      "bytes": 3270,
+      "sha256": "a5fead7204496d5ea326357ac2658418ce351c4c92d8b76400c2079e477facc3",
+      "records": 139
+    },
+    {
+      "path": "Tables/NpcFactor.jsonl",
+      "bytes": 83196,
+      "sha256": "33c684ee427974527e455daf5acb65387bad6a30be1ac4d532be3e4dd58e9665",
+      "records": 1256
+    },
+    {
+      "path": "Tables/NpcGroup.jsonl",
+      "bytes": 6987,
+      "sha256": "962c55406e84d12387212b0349b6b977cd05c96e51c2ae52d6972bea76647e58",
+      "records": 119
+    },
+    {
+      "path": "Tables/NpcGroupMember.jsonl",
+      "bytes": 54063,
+      "sha256": "97225c33cd8a24d9e5beee5b3dc3975fb5467e8b1bc1c097771821db633a3582",
+      "records": 430
+    },
+    {
+      "path": "Tables/NpcSpawner.jsonl",
+      "bytes": 2779887,
+      "sha256": "212d196ce79351199c965d81e725d51934b89b3c96c6276b3659f7af14fd2e19",
+      "records": 6988
+    },
+    {
+      "path": "Tables/NpcStatTemplate.jsonl",
+      "bytes": 80364,
+      "sha256": "237243c23cef7f75c61fb3430b9a42c52c34f2305b11d508e0509063d9fbac22",
+      "records": 849
+    },
+    {
+      "path": "Tables/NpcSubCollision.jsonl",
+      "bytes": 117,
+      "sha256": "284ead35084b35b8937da9352be1caefee8932eb4fd5bd507338f94948de14f8",
+      "records": 3
+    },
+    {
+      "path": "Tables/NpcTemplate.jsonl",
+      "bytes": 278177,
+      "sha256": "ff6a123bc6450d605a361529c6454c68ae419bfefcf615fee469fcad0becfe3d",
+      "records": 493
+    },
+    {
+      "path": "Tables/NpcWeaponOverrideByUnitModel.jsonl",
+      "bytes": 508,
+      "sha256": "02be5ca9b4f90dc87b84a74802535dfb520b8a2ef33f65e78d50289c605140db",
+      "records": 6
+    },
+    {
+      "path": "Tables/NpcX5MotionVariable.jsonl",
+      "bytes": 232,
+      "sha256": "68a4c01709864e809fe6ad7c5e0c16ddfe28b6fd41b4d64d17c93d14b45eb3d2",
+      "records": 4
+    },
+    {
+      "path": "Tables/NuiBlessingLevel.jsonl",
+      "bytes": 2323,
+      "sha256": "bdcea5f6714d46d85e423831ecff37b4a1b7f50f4f1c7563564e1f29d81c8cf4",
+      "records": 30
+    },
+    {
+      "path": "Tables/OriginMap.jsonl",
+      "bytes": 5579,
+      "sha256": "4851e7aaedd531c56381de5fc8c3e7ac788b8f0cd6d26be6b46d81e928f69f96",
+      "records": 12
+    },
+    {
+      "path": "Tables/Packet.jsonl",
+      "bytes": 17409,
+      "sha256": "fbb692ddc39a4502cd00d0e4af94e6ca1fce1d9208a4e779c80a4fa2d13ad9b7",
+      "records": 253
+    },
+    {
+      "path": "Tables/PaidShopProduct.jsonl",
+      "bytes": 1740,
+      "sha256": "051432664323c5c3bf796cfd81a7b87b0e72022b3c6760d9adba83df900191cb",
+      "records": 6
+    },
+    {
+      "path": "Tables/PaidShopProductItem.jsonl",
+      "bytes": 4638,
+      "sha256": "3ed7b21ded7a057ae4f0e8164b46b1248d2a20aa0f58aeb5a8c60615e72f8bf3",
+      "records": 15
+    },
+    {
+      "path": "Tables/PaidShopTheme.jsonl",
+      "bytes": 765,
+      "sha256": "548a176cb2f1cc942359560c129838a52234c310a619db411a3ac84e2b1d6a60",
+      "records": 4
+    },
+    {
+      "path": "Tables/PerkNode.jsonl",
+      "bytes": 259017,
+      "sha256": "81f175dfcfca75bebd7a82ff167deb4535a9aea7dea096f2fcb6d09805242369",
+      "records": 609
+    },
+    {
+      "path": "Tables/PerkNodePreset.jsonl",
+      "bytes": 1157,
+      "sha256": "2cf9dd9b934dbba4256dccb67a6cbefacec986ab10c2ce3483e9510323a31c57",
+      "records": 4
+    },
+    {
+      "path": "Tables/PerkTheme.jsonl",
+      "bytes": 961,
+      "sha256": "52d9d17b1b29bc3c47d22137b83732d2f27ccf0a52b8e0678b8fb1fd88edeac6",
+      "records": 14
+    },
+    {
+      "path": "Tables/PhotoModeAnim.jsonl",
+      "bytes": 608,
+      "sha256": "84933f326d201d6aa5ca8b19e14448b29e8f383aad6a11de54540a6e59cdeba8",
+      "records": 8
+    },
+    {
+      "path": "Tables/PhotoModePose.jsonl",
+      "bytes": 1304,
+      "sha256": "290680336517fa72ed4005a7665bbfd99e31103f5970db0bdab174925d8fef5f",
+      "records": 8
+    },
+    {
+      "path": "Tables/PhotoModeResolution.jsonl",
+      "bytes": 3289,
+      "sha256": "6e56fb57bc8a37b0809a72040ecdfda12d987fbdd3c326a2385d8fa2889d3d29",
+      "records": 28
+    },
+    {
+      "path": "Tables/PhotoModeSetting.jsonl",
+      "bytes": 7482,
+      "sha256": "c1143da4719cf25019d88fa3f14656486ab927ef91c23f3bb07b2ba0c058a5e1",
+      "records": 29
+    },
+    {
+      "path": "Tables/PlayRecord.jsonl",
+      "bytes": 39656,
+      "sha256": "3bf69d1360646c30f66751f1ac64b4b16498a07efd06f44d2623f6dc7d8ea6c2",
+      "records": 579
+    },
+    {
+      "path": "Tables/Portal.jsonl",
+      "bytes": 7005,
+      "sha256": "2d010eddf51db60f0c9b05ae25394325b969dce76195502de94a26769bfc8497",
+      "records": 67
+    },
+    {
+      "path": "Tables/PrecisionStrike.jsonl",
+      "bytes": 300244,
+      "sha256": "448603c7baebfa2f2cbafa62bbe42a43dd6f9e05e5bcb825ad5b8e78110761a8",
+      "records": 724
+    },
+    {
+      "path": "Tables/PursuitJournalClue.jsonl",
+      "bytes": 10853,
+      "sha256": "a8051bc30a54594930d462fd915851e8af342714401027127170bfa7dea3c51c",
+      "records": 77
+    },
+    {
+      "path": "Tables/PursuitJournalCondition.jsonl",
+      "bytes": 23167,
+      "sha256": "5997baa33e0616eea2a5815d674dc65f07aab6ce067cdff49c9c9b454db62229",
+      "records": 122
+    },
+    {
+      "path": "Tables/PursuitJournalPage.jsonl",
+      "bytes": 593,
+      "sha256": "ad9c41c2d897782274be165645346d6d46a05244dfd1a37e311d63f70dcf4ac5",
+      "records": 3
+    },
+    {
+      "path": "Tables/PursuitJournalTarget.jsonl",
+      "bytes": 6741,
+      "sha256": "0d04700f060aaec2678dc36b85c7a4ae2514313a987d8adb397a22e13e55644a",
+      "records": 15
+    },
+    {
+      "path": "Tables/Quest.jsonl",
+      "bytes": 1155761,
+      "sha256": "4debc24ab188dbc0c8737446c64829da189de511d7178d239ba1b475f21ea9ed",
+      "records": 1586
+    },
+    {
+      "path": "Tables/QuestChapter.jsonl",
+      "bytes": 3312,
+      "sha256": "abe14b2a8058f6e4a364058792ae12c0b10461297f3989ac0a9a4849237e1304",
+      "records": 16
+    },
+    {
+      "path": "Tables/QuestCondition.jsonl",
+      "bytes": 45642,
+      "sha256": "e2b6c55de71ced490bfbe27c4b3c665d5974c3029b1382fb00fccf1860eb3dcc",
+      "records": 221
+    },
+    {
+      "path": "Tables/QuestFailCondition.jsonl",
+      "bytes": 5063,
+      "sha256": "92eca7f033b2d1f900a2c8d828c30438743f7fd44a34de57d45997fa56beb375",
+      "records": 39
+    },
+    {
+      "path": "Tables/QuestJobBoard.jsonl",
+      "bytes": 1197,
+      "sha256": "d08514d60770b4c8359ec0e9358091db4ae44b30ebf04288c6a6b4524dac6994",
+      "records": 14
+    },
+    {
+      "path": "Tables/QuestJobBoardCategory.jsonl",
+      "bytes": 7738,
+      "sha256": "84cab24eb3aef6ed6df2304ea82e1f8bd092a9d737cf60ac5f3b465ccb97b0e6",
+      "records": 57
+    },
+    {
+      "path": "Tables/QuestPickGroup.jsonl",
+      "bytes": 11470,
+      "sha256": "83cfdcc533c6f66d73480c280b5502c9a2274dfd2124ec56900f3b084e1ad15b",
+      "records": 317
+    },
+    {
+      "path": "Tables/QuestProgress.jsonl",
+      "bytes": 522689,
+      "sha256": "9fa5caf9126eacfbec2553ba515ef367a95b5236df98cb8c2133c26134a61bab",
+      "records": 1435
+    },
+    {
+      "path": "Tables/QuestReward.jsonl",
+      "bytes": 117016,
+      "sha256": "f8a25531e7334c8e4d39ee838652416a4bd11f2b6b8e22bbd492371903a66b97",
+      "records": 1484
+    },
+    {
+      "path": "Tables/QuestSystemMessage.jsonl",
+      "bytes": 260,
+      "sha256": "63a27fb804be346608909830c0f8c6c7822582929fe9e5e864de4766b1d00a93",
+      "records": 3
+    },
+    {
+      "path": "Tables/QuestWorldLevel.jsonl",
+      "bytes": 33026,
+      "sha256": "c70d57c1481b5b958284dd8544cabde2fe7bed3a41188c9c466fbc0c36d17c29",
+      "records": 311
+    },
+    {
+      "path": "Tables/QuestWorldLevelArray.jsonl",
+      "bytes": 35741,
+      "sha256": "a4f71f44ed76e3edb185c6fc95b689d6d2e2211c583df681fb36e1eeda984ace",
+      "records": 415
+    },
+    {
+      "path": "Tables/QuestWorldLevelCondition.jsonl",
+      "bytes": 128183,
+      "sha256": "7571818cb6bbabc76d728aabe00d28815a59389423ba6faa26b6fdcb821a1371",
+      "records": 592
+    },
+    {
+      "path": "Tables/RaidUI.jsonl",
+      "bytes": 168,
+      "sha256": "d54bc92a68b7b52cbbbd768a05a1ddd6503b018a33cfd9be1dd06a04bf691772",
+      "records": 3
+    },
+    {
+      "path": "Tables/Ranking.jsonl",
+      "bytes": 2095,
+      "sha256": "449912ed8fe4473755a6fd60576dad73c40e3ad87b17561401603690554ae481",
+      "records": 16
+    },
+    {
+      "path": "Tables/RankingReward.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "records": 0
+    },
+    {
+      "path": "Tables/Reaction.jsonl",
+      "bytes": 10539,
+      "sha256": "b679eaaa546533f58bc718ddece3ba65ebdeb02975e4d40bd67056845585aa24",
+      "records": 23
+    },
+    {
+      "path": "Tables/RestrictedChatWord.jsonl",
+      "bytes": 278943,
+      "sha256": "5c3a8066745a7804bf4f077cf30a264f04b85d1e52c78dded5850c7d5b78ce98",
+      "records": 12595
+    },
+    {
+      "path": "Tables/ReviveTask.jsonl",
+      "bytes": 135,
+      "sha256": "e944b0c08ea86b1ce7b1087f1cd66a3e10980ddf031ddd8171d6f9c076af40c0",
+      "records": 1
+    },
+    {
+      "path": "Tables/RewardStat.jsonl",
+      "bytes": 481,
+      "sha256": "6ff36deb9d9f833942e8e4361150b337fa2ad6fcd6fd81570cd65a1c7bd8d5bc",
+      "records": 5
+    },
+    {
+      "path": "Tables/Shield.jsonl",
+      "bytes": 4139,
+      "sha256": "56262d73397fc064b78fa815584bd5daae0212f6f1f5779b0e69ae50f85bf679",
+      "records": 32
+    },
+    {
+      "path": "Tables/Shop.jsonl",
+      "bytes": 148515,
+      "sha256": "b3a548a9491ac98e8cb2a568e9188c97a08bbf778c323169b5793f3fe7550c55",
+      "records": 731
+    },
+    {
+      "path": "Tables/ShopCategory.jsonl",
+      "bytes": 312,
+      "sha256": "10aca541bc2aa6687203901ca11af60ec1e82c96fe8a6917985b411f2f16f369",
+      "records": 7
+    },
+    {
+      "path": "Tables/ShopItemCondition.jsonl",
+      "bytes": 3395,
+      "sha256": "bd6a9dc616a9069f207a17aced64627bf7481e0b8b833beb66b7b18403434b47",
+      "records": 17
+    },
+    {
+      "path": "Tables/Skill.jsonl",
+      "bytes": 2582597,
+      "sha256": "591c5e2d7b1555ff2372871ab89c53c11b8ae3b0f581eb26c1cfd8fa1fe5647e",
+      "records": 2836
+    },
+    {
+      "path": "Tables/SkillChanger.jsonl",
+      "bytes": 46626,
+      "sha256": "7eed2a93962870db9dbf83094d0f75d8c3d733ab5cd4e2f5c1ee94499a999421",
+      "records": 137
+    },
+    {
+      "path": "Tables/SkillEffect.jsonl",
+      "bytes": 5723114,
+      "sha256": "4e42c2b29c218090bcaab45240a84e233909a4621d91b2eee1e2b678daea2405",
+      "records": 5366
+    },
+    {
+      "path": "Tables/SkillEffectCondition.jsonl",
+      "bytes": 235729,
+      "sha256": "da1ad163cbdda44ccd138f246eb1b3b963672cb0ed2a1e49c5dd2eb8ad86f0ec",
+      "records": 599
+    },
+    {
+      "path": "Tables/SkillExtraCost.jsonl",
+      "bytes": 117,
+      "sha256": "bc8b4e0ecd2efd5eb161b3b0785e03f451ab4a54e6a528d069608826650365e9",
+      "records": 3
+    },
+    {
+      "path": "Tables/SkillObject.jsonl",
+      "bytes": 701352,
+      "sha256": "a153e217eb0162aa9cb91d3b2b2328e826cac4b3ca1e6e4e7601a6e8760130f7",
+      "records": 675
+    },
+    {
+      "path": "Tables/Stat.jsonl",
+      "bytes": 4609,
+      "sha256": "2ea2a2710ba4d235d8748c615cc614e75e76ee992034d41cd9c6b358287ae5c3",
+      "records": 94
+    },
+    {
+      "path": "Tables/StatRecovery.jsonl",
+      "bytes": 4411,
+      "sha256": "6f0e26e0190fb866e6f300b121d8eec178212187f2da4eaf0be0c95077fe1e2b",
+      "records": 38
+    },
+    {
+      "path": "Tables/StatusEffect.jsonl",
+      "bytes": 449325,
+      "sha256": "9bc23f9d296eebb7acb0a9c975888e1544682e72bc339ca3b7850890673aca94",
+      "records": 507
+    },
+    {
+      "path": "Tables/Storage.jsonl",
+      "bytes": 73,
+      "sha256": "c03bb3467135af5a2698b3ec88e0c498844161a3928414806f28de85dad169df",
+      "records": 1
+    },
+    {
+      "path": "Tables/StorageType.jsonl",
+      "bytes": 63,
+      "sha256": "f817caead879d19343d438061bc89d39ccccf0a4a8095207552e618b0d0df8af",
+      "records": 1
+    },
+    {
+      "path": "Tables/SummonNpc.jsonl",
+      "bytes": 1688,
+      "sha256": "4518441a4351f4a826328cad2e5979d5acfc529282d598805435e13cda2ccfd5",
+      "records": 10
+    },
+    {
+      "path": "Tables/SystemMessage.jsonl",
+      "bytes": 82585,
+      "sha256": "22e2bf47d819c969d21931712ced112fffe95967836d6f5a66e249805db43f09",
+      "records": 447
+    },
+    {
+      "path": "Tables/SystemMessageBlockingPolicy.jsonl",
+      "bytes": 349,
+      "sha256": "4403fdf47f39fa9aad81287c44adca8330da7f0b42f2dbee45cbf4c67470814b",
+      "records": 6
+    },
+    {
+      "path": "Tables/TearsOfNuiFx.jsonl",
+      "bytes": 386,
+      "sha256": "f0aadfa8a66d6d6e8b073c3a67368276850e91166a53059c148e91fb77ce732f",
+      "records": 4
+    },
+    {
+      "path": "Tables/TelegnosisCollection.jsonl",
+      "bytes": 91454,
+      "sha256": "252611bcb579ea2b5ecb124bf32b0a885df732a814933db6eeeba2487693f558",
+      "records": 1040
+    },
+    {
+      "path": "Tables/TextAlias.jsonl",
+      "bytes": 1521,
+      "sha256": "3ab0ed8bebe1f77e64caa3ad16392fd42d7bec0215b7f451a81409d962a43f00",
+      "records": 17
+    },
+    {
+      "path": "Tables/TradeBonusReward.jsonl",
+      "bytes": 9398,
+      "sha256": "ec070e0d3c3039330b83e136751524692367f7791234f3cb1c6d04a958e732c6",
+      "records": 72
+    },
+    {
+      "path": "Tables/TradeGood.jsonl",
+      "bytes": 24171,
+      "sha256": "ada4f9525ca6d11fcf2d701ebd9cfd0277a1436443ef8754fd6c6525e58b4a61",
+      "records": 85
+    },
+    {
+      "path": "Tables/TradeGoodQuality.jsonl",
+      "bytes": 1918,
+      "sha256": "0fc614eb97bef2468795e867d5dde5affc62e96a310de24b41e68fc430d511b5",
+      "records": 22
+    },
+    {
+      "path": "Tables/TradePatternDesc.jsonl",
+      "bytes": 1080,
+      "sha256": "a1d26f16d761e236c90d51fceed5279ce475958ed573a942eb33a5218c520af4",
+      "records": 36
+    },
+    {
+      "path": "Tables/TradingPost.jsonl",
+      "bytes": 436,
+      "sha256": "6252cc25d6230846395243554dff2d5827340d6af017e0f60a352987404b79da",
+      "records": 9
+    },
+    {
+      "path": "Tables/TradingPostGoods.jsonl",
+      "bytes": 4519,
+      "sha256": "6a87ef6d5154f4ca34d214225e836e8608503f46c0970af67613f1bb8a0fafcc",
+      "records": 67
+    },
+    {
+      "path": "Tables/TradingPostPurchase.jsonl",
+      "bytes": 54908,
+      "sha256": "f539ef9d6a8dae4007cbf5405c387ff34dbd9e928b63ee092e2f8f21c8492add",
+      "records": 294
+    },
+    {
+      "path": "Tables/Trophy.jsonl",
+      "bytes": 1528,
+      "sha256": "e2663c215bb02b7a63b20fc12c016004b865b2b05586450de9b55b2977727c83",
+      "records": 16
+    },
+    {
+      "path": "Tables/UIAction.jsonl",
+      "bytes": 78,
+      "sha256": "4cfcf33140d759f158a064c0ece09f8116162c0f54bb959d8543e2c5903685fa",
+      "records": 2
+    },
+    {
+      "path": "Tables/UIDelay.jsonl",
+      "bytes": 165,
+      "sha256": "71de145f4302e7989cc6c45c01de31a3bf2301bb3428890b156608c411d53480",
+      "records": 1
+    },
+    {
+      "path": "Tables/UnitGroupModel.jsonl",
+      "bytes": 223953,
+      "sha256": "621042c07988ae5ce84d3c9019a5007f91550979abec3398b7275311abf0755e",
+      "records": 191
+    },
+    {
+      "path": "Tables/UnitModel.jsonl",
+      "bytes": 321388,
+      "sha256": "24e4315cef5ee8d330b10432b434fc402dc05a60c41b14f64c06bb4f20d92dea",
+      "records": 1240
+    },
+    {
+      "path": "Tables/UnitModelAnimToTexture.jsonl",
+      "bytes": 5171,
+      "sha256": "656a753b4337c76986dc21e155e4d800a784a845de471133eb8fc8d75836fb83",
+      "records": 19
+    },
+    {
+      "path": "Tables/UnitTrait.jsonl",
+      "bytes": 595,
+      "sha256": "2f946dcaf257c346946ee10d26bac6bb53712a42ae00df768dbfedd486b927ff",
+      "records": 7
+    },
+    {
+      "path": "Tables/UtilityBagFullFillCnt.jsonl",
+      "bytes": 914,
+      "sha256": "00c58dde2ab1a7ff220c84ccb74d80d30b6c2a665f7cacf47bc8cb56f2dad83d",
+      "records": 7
+    },
+    {
+      "path": "Tables/Vehicle.jsonl",
+      "bytes": 588,
+      "sha256": "d1bb3d49d34d16ca37dfb23dabccbbda8123fef104b40ba0ca46fb1567ac1735",
+      "records": 1
+    },
+    {
+      "path": "Tables/Voice.jsonl",
+      "bytes": 515407,
+      "sha256": "691d105c5c8f130a99a454864fda2ae97195a661b9bafcc97588bc7bfad1fd1f",
+      "records": 4256
+    },
+    {
+      "path": "Tables/VoucherCondition.jsonl",
+      "bytes": 2136,
+      "sha256": "1620bffc17f8f20b6a928f32e43acba7753221eccec8229045bc73d7668087bd",
+      "records": 12
+    },
+    {
+      "path": "Tables/VoucherGroup.jsonl",
+      "bytes": 4962,
+      "sha256": "ea4c72f5ba83bd298f69db6c8897ed201ae00bd8e1a3ab3e386ae2106eb65225",
+      "records": 63
+    },
+    {
+      "path": "Tables/WeaponSkills.jsonl",
+      "bytes": 16344,
+      "sha256": "d6af5070c84e567c9cd0220f5fe2f17bfdc953d5058f711f1b3fcca032507b93",
+      "records": 20
+    },
+    {
+      "path": "Tables/Weather.jsonl",
+      "bytes": 69,
+      "sha256": "525293972b3203e70688ff9eb966d5362e55a0b460b0aa6c42fbf1a1ff00d12d",
+      "records": 1
+    },
+    {
+      "path": "Tables/WeatherContent.jsonl",
+      "bytes": 8047,
+      "sha256": "a2c0ee9ab8136f8a76c7883deb3fc36b03cc8a3fb144e26874763ad3075be6d2",
+      "records": 46
+    },
+    {
+      "path": "Tables/WeatherContentSelect.jsonl",
+      "bytes": 4444,
+      "sha256": "c4897b38002b2b322bce65f8d6eca0c0de220c9b3fe6a18f577d7bb736605b2f",
+      "records": 10
+    },
+    {
+      "path": "Tables/WorldHousingLotNumber.jsonl",
+      "bytes": 182,
+      "sha256": "f2a3f5fe2777d1bbb55bcb7f07d7a8656630eeafc7775472d4d82300e536185e",
+      "records": 2
+    },
+    {
+      "path": "Tables/WorldLevel.jsonl",
+      "bytes": 283,
+      "sha256": "c8f494c2660c04229b7f3e29c6d42fd1f5072d582268bc0c875db7d0669af2f9",
+      "records": 6
+    },
+    {
+      "path": "Tables/X5Motion.jsonl",
+      "bytes": 185066,
+      "sha256": "41633c5b30c8b3ef33b5f3c9597758bb2cf3ee2635eab8b2daabd60398af2b6c",
+      "records": 1298
+    },
+    {
+      "path": "Tables/Zone.jsonl",
+      "bytes": 164640,
+      "sha256": "bd593048882e62d0d984db7d1ca5a86d8b104f181d63b3a0ada9e637073885f8",
+      "records": 428
+    },
+    {
+      "path": "npcs.jsonl",
+      "bytes": 15034856,
+      "sha256": "4a70d2eda6b95afa71886fda58f579ad1ddeb2a538251e38e30572f9355e4faa",
+      "records": 7163
+    },
+    {
+      "path": "mobs.jsonl",
+      "bytes": 7321269,
+      "sha256": "7b0deada2a879dc98bc9607f470aeb9234b70829d82c671801b2c1b187bce076",
+      "records": 3265
+    },
+    {
+      "path": "civilians.jsonl",
+      "bytes": 2458535,
+      "sha256": "bc11f9966573516a5e4866e88ff747be04fc86e976a76cbe2597cce5d860c948",
+      "records": 1244
+    },
+    {
+      "path": "npc-spawners.jsonl",
+      "bytes": 12249577,
+      "sha256": "0ffeb91492cec2a92ddd48439366fbace95c94de1c9a96176d99bd5e024bc956",
+      "records": 10138
+    },
+    {
+      "path": "summary.json",
+      "bytes": 60296,
+      "sha256": "9e026f34387954c5d3956855d80017e5d9cd80656fb701fc9caceca5260108d3",
+      "records": null
+    }
+  ]
+}

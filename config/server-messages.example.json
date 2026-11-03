@@ -1,0 +1,22 @@
+{
+  "enabled": false,
+  "sender_name": "[Server]",
+  "interval_seconds": 300,
+  "messages": [
+    {
+      "type": "chat",
+      "text": "Type !help to see the available server commands."
+    },
+    {
+      "type": "announcement",
+      "text": "Welcome to the server. Enjoy your adventure!"
+    }
+  ],
+  "welcome": {
+    "enabled": false,
+    "messages": [
+      "Welcome! Type !help for server commands.",
+      "Use !pvp on or !pvp off to change your PvP flag."
+    ]
+  }
+}

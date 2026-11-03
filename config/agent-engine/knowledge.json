@@ -1,0 +1,20 @@
+{
+  "_comment": "Emulator-authored world knowledge for POST /search/knowledge-hybrid (docs/agent-engine.md). Each entry is one short fact; entries must not contain the text ', Distance:'. None of this text was recovered from the official service.",
+  "entries": [
+    "A house mate lives in your home, keeps it in order and can be invited or dismissed from the house mate dialogue.",
+    "House mates remember the conversations they have with the people they live with.",
+    "Gardens near a home can grow vegetables and herbs that are useful for cooking.",
+    "Cooking turns gathered ingredients into meals that restore strength after a long journey.",
+    "Village markets are where traders sell produce, crafted goods and supplies.",
+    "Trade packs are carried from one region to another and sold for a better price far from where they were made.",
+    "Travelers rest at inns and campfires to recover before continuing on the road.",
+    "Monsters roam the wilds outside the villages, and travelers should carry proper weapons and armor.",
+    "Quests are tasks that villagers ask of adventurers in exchange for rewards.",
+    "Mounts let travelers cross long distances quickly, and some vehicles can carry trade packs.",
+    "Guilds are groups of adventurers who help one another and share a common name.",
+    "Mail lets people send letters and parcels to each other across the continent.",
+    "Gathering herbs, ore and wood provides materials for crafting.",
+    "The day is divided into morning, afternoon, evening and night, and many villagers follow a daily routine.",
+    "A warm meal, a clean house and good company make a home worth returning to."
+  ]
+}

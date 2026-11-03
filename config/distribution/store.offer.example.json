@@ -1,0 +1,11 @@
+{
+  "id": "your-collection",
+  "title": "Your collection name",
+  "summary": "Describe the real collection available in your shop.",
+  "category": "COLLECTION",
+  "art": "citadel",
+  "price_label": "View shop",
+  "url": "https://shop.example.com/your-collection",
+  "sort_order": 0,
+  "published": false
+}

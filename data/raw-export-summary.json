@@ -1,0 +1,8 @@
+{
+  "format_version": 1,
+  "source_kind": "ArcheAge Chronicles Demo verified raw client extraction",
+  "source_extraction_manifest_sha256": "6fc4f64a69318c0994549000c06e56ddeb89eb0835a053024638019853a61485",
+  "source_readback_verification_sha256": "680a07ef172ef3ed13778d163435fa80d35a8d557a2f02784f9f9c5e33caf219",
+  "files": 11720,
+  "bytes": 1455738099
+}

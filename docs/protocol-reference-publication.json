@@ -1,0 +1,68 @@
+{
+  "page_id": "page_d76bbd1a8b988191a91ed6afa2af9adf",
+  "url": "https://chatgpt.com/space/page_d76bbd1a8b988191a91ed6afa2af9adf",
+  "document": "docs/protocol-feature-reference.md",
+  "document_sha256": "afcf4a5512eb68f4b639cebc7fdc57a4b3b014e985e3039f940e37ca79ca3415",
+  "verified_at_utc": "2026-11-03T03:53:11Z",
+  "verification": "All eight child Pages and the root index were read. Ordered whitespace-normalized content matches the standalone game-server reference: 3394 blocks and 538 catalog entries. Autonomous login/game ownership, private admission, synthetic PostgreSQL/TLS checks and remaining original-client acceptance limits are recorded. References to retired combined startup/packaging scripts were removed; frontend/login pointers target their independent repositories.",
+  "sharing": "Private; existing account access only.",
+  "pending_source_reviews": [],
+  "parts": [
+    {
+      "page_id": "page_45b328e86fb08191bcb9d5ba91e7fb5c",
+      "url": "https://chatgpt.com/space/page_45b328e86fb08191bcb9d5ba91e7fb5c",
+      "title": "Project Chronicles overview captures and accounts",
+      "first_heading": "# ArcheAge Chronicles Demo \u2014 protocol and feature coverage",
+      "verified_blocks": 449
+    },
+    {
+      "page_id": "page_06f2a1f1076c81918681ebaceb416271",
+      "url": "https://chatgpt.com/space/page_06f2a1f1076c81918681ebaceb416271",
+      "title": "Project Chronicles sessions movement and travel",
+      "first_heading": "## World connection, clock and session lifecycle",
+      "verified_blocks": 513
+    },
+    {
+      "page_id": "page_664fea9a01fc8191bdd575e7d833e8c5",
+      "url": "https://chatgpt.com/space/page_664fea9a01fc8191bdd575e7d833e8c5",
+      "title": "Project Chronicles world population and combat",
+      "first_heading": "## World population, visibility and NPC AI",
+      "verified_blocks": 342
+    },
+    {
+      "page_id": "page_fb3e2e5b83c4819185e8a0e547dacff5",
+      "url": "https://chatgpt.com/space/page_fb3e2e5b83c4819185e8a0e547dacff5",
+      "title": "Project Chronicles progression quests and interactions",
+      "first_heading": "## Projectiles and skill objects",
+      "verified_blocks": 476
+    },
+    {
+      "page_id": "page_ca89d69f54708191b64d07d96ea2078e",
+      "url": "https://chatgpt.com/space/page_ca89d69f54708191b64d07d96ea2078e",
+      "title": "Project Chronicles inventory loot crafting and chat",
+      "first_heading": "## Inventory, equipment, currency and utility bag",
+      "verified_blocks": 471
+    },
+    {
+      "page_id": "page_7d74fa372ab48191acde2617f1093302",
+      "url": "https://chatgpt.com/space/page_7d74fa372ab48191acde2617f1093302",
+      "title": "Project Chronicles groups guilds mounts and housing",
+      "first_heading": "## Parties, leadership and group channels",
+      "verified_blocks": 453
+    },
+    {
+      "page_id": "page_3b1210f04b04819194c41c04110385da",
+      "url": "https://chatgpt.com/space/page_3b1210f04b04819194c41c04110385da",
+      "title": "Project Chronicles commerce mail rankings and diagnostics",
+      "first_heading": "## Trading posts, wagons, vouchers and trade runs",
+      "verified_blocks": 439
+    },
+    {
+      "page_id": "page_8f5a9583bbf881919b49a78697e68e94",
+      "url": "https://chatgpt.com/space/page_8f5a9583bbf881919b49a78697e68e94",
+      "title": "Project Chronicles agent engine preferences and common messages",
+      "first_heading": "## Conversational AI agent-engine REST services",
+      "verified_blocks": 251
+    }
+  ]
+}

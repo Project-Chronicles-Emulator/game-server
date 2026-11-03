@@ -1,0 +1,19 @@
+{
+  "storage": "postgres",
+  "bind_address": "0.0.0.0",
+  "public_address": "https://api.your-realm.example",
+  "port": 443,
+  "http_tls_cert": "certs/api-fullchain.pem",
+  "http_tls_key": "certs/api.key",
+  "native_client": "local",
+  "native_require_launch_grant": true,
+  "world_port": 8481,
+  "world_advertised_host": "world.your-realm.example",
+  "world_name": "Project Chronicles Private Server",
+  "world_capacity": 500,
+  "tls_cert": "certs/world-fullchain.pem",
+  "tls_key": "certs/world.key",
+  "protocol_dir": "protocol",
+  "patch_dir": "releases",
+  "patch_public_key": "REPLACE_WITH_THE_RELEASE_SIGNING_PUBLIC_KEY"
+}

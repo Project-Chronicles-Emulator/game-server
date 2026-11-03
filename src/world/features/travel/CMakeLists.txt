@@ -1,0 +1,19 @@
+chronicles_add_module(world/features/travel
+  SOURCES
+    map_travel.cpp
+  DEPENDS
+    common
+    persistence
+    protocol
+    world/core
+    world/features/quests
+  LIBRARIES
+    nlohmann_json::nlohmann_json
+)
+
+chronicles_add_module_tests(world/features/travel
+  SOURCES
+    tests/map_travel_tests.cpp
+  MODULES
+    protocol
+)

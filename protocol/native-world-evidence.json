@@ -1,0 +1,59 @@
+{
+  "binary_sha256": "e4002be7746485ba5e789c8ac798f48dce016d165e07c0e93e4e4e8e4fd693b6",
+  "image_base": "0x140000000",
+  "application_protocol": {
+    "byte_order": "little-endian",
+    "client_header": "uint16 total_length, uint16 opcode, uint32 sequence",
+    "server_header": "uint16 total_length, uint16 opcode",
+    "sequence_initial": 0,
+    "entry_success_frame_hex": "04000500",
+    "clock_units_per_second": 10000000,
+    "opcodes": {
+      "PC2S_TimeSyncReq": 20001,
+      "PC2S_CharExitReq": 20002,
+      "PC2S_Ping": 20003,
+      "PS2C_TimeSyncRes": 1,
+      "PS2C_Pong": 4,
+      "PS2C_CharEntryRes": 5,
+      "PS2C_CharExitRes": 6
+    }
+  },
+  "positive_static_evidence": [
+    {
+      "address": "0x1461CCAF0",
+      "meaning": "Registers WS front opcode 12 CharSelectRes decoder and handler 1461766B0."
+    },
+    {
+      "address": "0x1461766B0",
+      "meaning": "CharSelectRes handler reads char_token at +32, game_address at +40, packet_key at +48, WorldCharacter at +56 and ec at +64. Success invokes protected 14616DE00(net, game_address FString, char_token string, packet_key bytes). Field identity is corroborated by the live GameNet+22736 FString containing the local game address after character selection."
+    },
+    {
+      "address": "0x14616C900",
+      "meaning": "Connection configuration supplies host/port and an initial byte array (+24 pointer, +32 length) to 146171870."
+    },
+    {
+      "address": "0x146171870",
+      "meaning": "Creates X5FrontNet TCP socket; TLS flag at connection +200 is initialized to one. Captures the initial byte array in the connection startup task."
+    },
+    {
+      "address": "0x146170CB0",
+      "meaning": "Connects socket, creates TLS wrapper, completes protected TLS setup, writes initial byte array via TLS before starting ordinary packet send/receive threads."
+    },
+    {
+      "address": "0x1461E8D70",
+      "meaning": "TLS write wrapper calls OpenSSL SSL_write analogue at 148633260 and drains encrypted BIO output."
+    }
+  ],
+  "unresolved": [
+    "14616DE00 is a protected VM entry. The transformation from char_token plus packet_key into the initial byte array has not been recovered.",
+    "1461E7FD0 enters protected VM code. Native certificate verification policy has not been recovered.",
+    "The prototype listener accepts an emulator-defined 32-byte opaque packet_key over TLS. This adapter has synthetic integration coverage only and is not evidence that the stock client will accept or produce this handshake.",
+    "No map-loading or gameplay state is synthesized by the bootstrap listener."
+  ],
+  "emulation_attempt": {
+    "tool": "Sogen unicorn",
+    "entry": "0x14616DE00",
+    "result": "Protected dispatcher executed approximately two million instructions before an access violation in VM code. No initial-credential format was derived. Session closed; no live-client memory was modified."
+  },
+  "decompilation_cache": "../../dumps/world_research"
+}
