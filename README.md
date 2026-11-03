@@ -141,3 +141,5 @@ also require Microsoft Edge WebView2 Runtime. The extractor package requires .NE
 These experimental previews do not establish compatibility with another client build.
 
 See [build inputs and complete recovered packet fields](docs/guides/protocol-inputs.md) for the checked-in schemas and readable field export.
+
+Using a downloaded ZIP? Follow [preview package startup](docs/guides/preview-packages.md) for package-relative commands and prerequisites.
