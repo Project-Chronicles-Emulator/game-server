@@ -74,6 +74,24 @@ private. The command does not modify the client. For an already prepared compati
 private client, add `--client-mode private_copy`; this does not prepare or patch
 a stock client. Unknown builds fail the existing identity checks.
 
+The normal server-data extraction excludes config files. Use the published asset
+extractor to make a separate config snapshot in a **new** output directory:
+
+```powershell
+dotnet C:/ProjectChronicles/asset-extractor/ChroniclesAssetExtractor.dll `
+    D:/Games/Chronicles/X5/Content/Paks `
+    C:/ProjectChronicles/private/client-config-extraction `
+    --extract --extract-prefix X5/Config/ `
+    --key C:/ProjectChronicles/private/archive-key.local.txt `
+    --oodle C:/LocalTools/oo2core_9_win64.dll
+python C:/ProjectChronicles/asset-extractor/verify_extraction.py `
+    C:/ProjectChronicles/private/client-config-extraction
+```
+
+Then use that config snapshot as `--extraction` in the preparation command above.
+Require zero extraction/readback errors. The researched build exported 18 config
+files in the package trial; counts for a different build are not an acceptance rule.
+
 ```powershell
 .\chronicles-launcher.exe
 ```
