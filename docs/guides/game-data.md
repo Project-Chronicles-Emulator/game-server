@@ -119,9 +119,11 @@ python tools/export_client_data.py --verify-only
 
 Omit `--include-raw` only when you need the structured catalog and no raw-data
 generators. Verification checks every exported file against its manifest. A matching
-complete raw tutorial export also causes the exporter to generate several tutorial,
-quest, guide, interaction and exploration profiles; read its output rather than
-assuming every optional generator ran.
+complete raw tutorial export generates all current runtime profiles: tutorial, quests,
+guides, NPC populations, monster encounters, gathering, loot, processing, housing
+doodads, NPC reactions, adventure objects, travel, channel events, exploration,
+shrines and map-transition indexes. Resolve reported missing layers and unsupported
+entries; generating data does not establish complete gameplay support.
 
 | Output | Purpose |
 | :--- | :--- |
@@ -145,7 +147,8 @@ python tools/build_combat_data.py --source data/generated
 python tools/build_gathering_data.py --source data/generated
 python tools/build_housing_data.py --source data/generated
 python tools/build_stationary_npc_placements.py --source data/generated `
-    --map-id 9012 --output-dir data/generated/npc/placements
+    --all-maps --output-dir data/generated/npc/placements
+python tools/build_world_mobs.py --source data/generated
 python tools/build_level_trigger_volumes.py --source data/generated `
     --output-dir data/generated/triggers
 ```
@@ -168,7 +171,9 @@ Add the catalog to the normal game command:
 Several researched tutorial/combat/gathering profile paths are additionally gated by
 `--world-bootstrap-diagnostic true` in `src/apps/server.cpp`. For that bounded
 development path, append the flag explicitly after preparing the matching profiles.
-Authored NPC population also requires the appropriate `--npc-placements FILE` input.
+Per-map NPC populations in `data/generated/npc/placements/map-*.json` load
+automatically beside the catalog. `--npc-placements FILE` optionally selects a primary
+population; it is not required to load those per-map files.
 The catalog flag alone does not populate every map or enable every gameplay system.
 Use [feature progress](../progress.md) and owning loader/source to identify prerequisites.
 

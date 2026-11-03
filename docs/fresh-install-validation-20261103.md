@@ -62,3 +62,22 @@ Check server startup for `Client catalog loaded` and `Tutorial definitions loade
 Confirm TLS completion, accepted world credential, map completion, actual character
 HUD, an action and continued keepalives. Do not treat health endpoints or a rendered
 backdrop as equivalent to this acceptance.
+
+## Complete local profile generation follow-up
+
+The initial export omitted server-owned NPC and monster populations and nine auxiliary
+runtime profiles. The full exporter now regenerates these from the same hash-verified
+private raw extraction. The isolated server successfully loads 56 civilian maps (2,523
+units), 204 monster maps, 119,474 gathering points, 789 gathering doodad points, 3,215
+loot NPC definitions, 111 processing stations, 233 recipes, five housing doodad types,
+612 civilian reaction definitions, 82 adventure maps and 212 travel maps (615 volumes).
+Both authored channel indexes load. Catalog verification passes for 286 tables and
+11,720 raw files. No missing-profile startup warnings remain. Character items and quest
+progress are unchanged across this data-only restart. These are generator and runtime
+loader checks, not original-client acceptance of every generated mechanic.
+
+The followup tutorial combat repair binds recreated player vitals to the successfully
+loaded map without attaching shared monsters. Its regression fails before the repair
+and passes afterward; the combat executable reports 355 passed, 19 skipped, zero failed.
+The local client and user confirmed the bed/cutscene route reached the overworld; this
+does not establish acceptance of every combat action or NPC interaction there.

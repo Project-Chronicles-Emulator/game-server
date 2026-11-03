@@ -523,13 +523,23 @@ bool CombatPlayerSession::acknowledge_reconciled_death() noexcept {
 void CombatPlayerSession::observe_map_load_vitals(FrameContext &frame, bool has_response) {
   const auto *gameplay_request = frame.request();
 
-  if (gameplay_request && gameplay_request->opcode == kMapLoadCompleteRequest && has_response &&
-      context_.combat_has_handoff() && !simulation_) {
+  if (!gameplay_request || gameplay_request->opcode != kMapLoadCompleteRequest ||
+      !has_response || !context_.combat_has_handoff() || !frame.party_position) {
+    return;
+  }
+
+  if (!simulation_) {
     if (const auto character = context_.combat_character()) {
       const auto progress = context_.combat_has_tutorial() ? context_.combat_tutorial_progress()
                                                            : context_.combat_stored_progress();
       ensure_player_vitals(*character, progress);
     }
+  }
+
+  // Followup tutorial instances have player vitals but no shared monster population.
+  // Bind them here as well: the shared-map observer deliberately excludes tutorials.
+  if (simulation_) {
+    simulation_->set_player_map(frame.party_position->map_id);
   }
 }
 

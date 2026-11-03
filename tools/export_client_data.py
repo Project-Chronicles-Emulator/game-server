@@ -355,6 +355,54 @@ def main():
                           json.dumps(static_npcs, ensure_ascii=False, indent=2) + "\n")
         print(f"Built static NPC interaction index with {len(static_npcs['targets'])} targets")
 
+        from build_stationary_npc_placements import main as build_npc_placements
+        from build_world_mobs import build as build_world_mobs
+
+        # Interaction targets alone do not spawn units. Generate the server-owned civilian
+        # populations and monster encounters from the same verified extraction.
+        build_npc_placements([
+            "--source", str(args.output.parent),
+            "--all-maps",
+            "--output-dir", str(args.output.parent / "npc/placements"),
+        ])
+        world_mobs = build_world_mobs(Source(args.output.parent))
+        write_text_atomic(args.output.parent / "world-mobs/definitions.json",
+                          json.dumps(world_mobs, ensure_ascii=False, indent=2) + "\n")
+        print(f"Built world monster populations for {len(world_mobs['maps'])} maps")
+
+        from build_adventure_objects import build as build_adventure
+        from build_gathering_data import build as build_gathering
+        from build_housing_data import build as build_housing
+        from build_loot_data import build as build_loot
+        from build_npc_reactions import build as build_reactions
+        from build_processing_data import build as build_processing
+        from build_map_travel import build_travel
+        from build_zone_channels import build_zone_channels
+        from build_level_trigger_volumes import main as build_trigger_volumes
+
+        runtime_profiles = (
+            ("adventure/definitions.json", build_adventure),
+            ("gathering/definitions.json", build_gathering),
+            ("housing/doodads.json", build_housing),
+            ("loot/definitions.json", build_loot),
+            ("npc-reactions/definitions.json", build_reactions),
+            ("processing/definitions.json", build_processing),
+            ("travel/definitions.json", build_travel),
+            ("triggers/ArcheWorld-zone-channels.json", build_zone_channels),
+        )
+        for relative_path, build_profile in runtime_profiles:
+            profile_source = Source(args.output.parent)
+            document = build_profile(profile_source)
+            document["source_sha256"] = dict(sorted(profile_source.sources.items()))
+            write_text_atomic(args.output.parent / relative_path,
+                              json.dumps(document, ensure_ascii=False, indent=2) + "\n")
+            print(f"Built runtime profile: {relative_path}")
+
+        build_trigger_volumes([
+            "--source", str(args.output.parent),
+            "--output-dir", str(args.output.parent / "triggers"),
+        ])
+
         from build_channel_event_data import build as build_channel_events
 
         channel_events = build_channel_events(Source(args.output.parent))

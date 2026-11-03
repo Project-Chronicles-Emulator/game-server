@@ -58,39 +58,31 @@ review changed hashes when replacing it.
 
 ## Generated NPC placements and level trigger volumes
 
-Two offline generators derive server-readable data from the exported raw layers. Both read through
-the hash-checked `Source` (catalog manifest and `raw-manifest.jsonl`), write nothing outside the
-output directory, and are deterministic. They need the export made with `--include-raw`. Their
-outputs are ignored by Git under `data/generated/`; regenerate them on every checkout that runs
-the server. Run from the repository root:
+A full `--include-raw` export builds all current runtime profiles, including civilian
+populations for every supported map, world monsters, gathering, loot, processing, housing
+objects, adventure objects, NPC reactions, travel and both map-transition indexes.
+Generated files remain private under `data/generated/`; none are shipped in releases.
+
+To repair an existing export, run the exporter with the original `--source` and matching
+`--output`/`--lock` paths, omitting `--include-raw`. It reuses the verified raw tree.
+`--verify-only` checks exported inputs but does not generate missing profiles. Restart
+the game service after generation and inspect its startup log for loaded profiles.
+
+Per-map civilian files in `npc/placements/map-*.json` load automatically beside the catalog.
+The optional `--npc-placements FILE` selects a primary population. For focused regeneration:
 
 ```powershell
-python tools/build_stationary_npc_placements.py --source data/generated --map-id 9012 `
+python tools/build_stationary_npc_placements.py --source data/generated --all-maps `
     --output-dir data/generated/npc/placements
+python tools/build_world_mobs.py --source data/generated
 python tools/build_level_trigger_volumes.py --source data/generated `
     --output-dir data/generated/triggers
+python tools/build_zone_channels.py --source data/generated
 ```
 
-Each command prints a JSON line with the output `sha256`. For the export of
-`ClientData_2026-10-23` the expected values are:
-
-| Output | SHA-256 | Content |
-| --- | --- | --- |
-| `data/generated/npc/placements/map-9012.json` | `d94db565ccadeddeb5575d7fd349bed9f509609c37efb546eaf7b3eac28a7345` | 878,427 bytes; 753 stationary placements, 752 active, 8 of the 14 listed layers without a spawner file |
-| `data/generated/triggers/ArcheWorld-level-triggers.json` | `82efee8b9759118e106aabf9c1684986355dd3797b318c24f5893f05a099acda` | 1,158,502 bytes; 1,540 volumes from 143 layer files |
-
-A different hash means a different export or a changed generator; compare the `source_sha256`
-block inside the file before trusting it. Verify with `Get-FileHash <file> -Algorithm SHA256`.
-
-The placements file is read by the server only when started with `--npc-placements FILE`
-(requires `--world-port`). `tools/start_persistent.ps1` takes an optional `-NpcPlacementsPath FILE`:
-when it is passed, the launcher throws before touching the cluster if the value is empty or the
-file is missing, otherwise it appends `--npc-placements <absolute path>` after
-`--client-data-dir`. A relative path resolves against the current directory. The file may live
-outside the workspace: it is read-only input and is deliberately not routed through the
-launcher's workspace path check. Without the parameter the server arguments are byte-identical
-to the launcher before this option. The launcher does not read the file; the server validates it.
-The trigger export has no runtime consumer yet.
+Generators report missing source layers, rejected placements and unsupported rules explicitly.
+Excluded or unsupported entries remain unavailable; do not change source guards to manufacture
+coverage for a different client build.
 
 Pre-reviewed tutorial definitions: by default the launcher regenerates
 `data/generated/tutorial/definitions.json` at every start with `tools/build_tutorial_data.py`.

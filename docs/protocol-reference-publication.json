@@ -2,9 +2,9 @@
   "page_id": "page_d76bbd1a8b988191a91ed6afa2af9adf",
   "url": "https://chatgpt.com/space/page_d76bbd1a8b988191a91ed6afa2af9adf",
   "document": "docs/protocol-feature-reference.md",
-  "document_sha256": "0fbefed8582d63329519ad84ffabab26914fc6ee8558401c77885e89f2f8f045",
-  "verified_at_utc": "2026-11-03T13:43:28Z",
-  "verification": "Root links and all eight complete child Pages read back. Their 4724 nonblank lines match the complete canonical document in order after whitespace normalization. Fresh split-service local tutorial entry, visible health/stamina and bounded weapon actions are recorded separately from synthetic tests and unverified full gameplay. Runtime feature labels and packet overrides are unchanged.",
+  "document_sha256": "7e4a714442ed717906e9c821c69905a5c7c46fb31cc12db6a088311f811e05ed",
+  "verified_at_utc": "2026-11-03T15:05:03Z",
+  "verification": "Root links and all eight complete child Pages read back. Their 4726 nonblank lines match the complete canonical document in order after whitespace normalization. The full-profile audit records generation and runtime loader acceptance separately from observed tutorial completion and unverified gameplay mechanics. Feature status labels remain unchanged; map-load and skill notes describe the bounded followup tutorial fix.",
   "sharing": "Private; existing account access only.",
   "pending_source_reviews": [],
   "parts": [
@@ -12,7 +12,7 @@
       "page_id": "page_45b328e86fb08191bcb9d5ba91e7fb5c",
       "url": "https://chatgpt.com/space/page_45b328e86fb08191bcb9d5ba91e7fb5c",
       "title": "Project Chronicles overview captures and accounts",
-      "first_heading": "# ArcheAge Chronicles Demo — protocol and feature coverage",
+      "first_heading": "# ArcheAge Chronicles Demo \u2014 protocol and feature coverage",
       "verified_blocks": 450
     },
     {
@@ -27,7 +27,7 @@
       "url": "https://chatgpt.com/space/page_664fea9a01fc8191bdd575e7d833e8c5",
       "title": "Project Chronicles world population and combat",
       "first_heading": "## World population, visibility and NPC AI",
-      "verified_blocks": 353
+      "verified_blocks": 355
     },
     {
       "page_id": "page_fb3e2e5b83c4819185e8a0e547dacff5",

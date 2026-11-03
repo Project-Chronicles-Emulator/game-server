@@ -724,6 +724,28 @@ protected:
   }
 };
 
+TEST_F(WeaponSwapOwner, FollowupTutorialMapLoadBindsRecreatedVitalsWithoutSharingMonsters) {
+  context.tutorial = true;
+  player->end_tutorial_combat();
+
+  FrameContext loaded(20085, WorldGameplayRequest{20085, 1, Json::object()});
+  loaded.party_position = kPosition;
+  loaded.party_position->map_id = 10117;
+  player->observe_map_load_vitals(loaded, false);
+  EXPECT_FALSE(player->has_simulation());
+
+  player->observe_map_load_vitals(loaded, true);
+  ASSERT_TRUE(player->has_simulation());
+  EXPECT_FALSE(player->has_world_mobs());
+  const auto request = start_skill(kSwordSkill, 1, std::nullopt);
+  const auto foreign = player->receive(request, kPosition, context.ticks);
+  ASSERT_EQ(foreign.size(), 1U);
+  EXPECT_EQ(foreign.front().message.at("ec"), "BadRequest");
+
+  const auto packets = player->receive(request, *loaded.party_position, context.ticks);
+  EXPECT_EQ(std::ranges::count(packets, 14, &GameplayPacket::opcode), 1);
+}
+
 TEST_F(WeaponSwapOwner, SwapSkillSelectsItsWeaponSlotBeforeTheSkillStarts) {
   const auto packets =
       player->receive(start_skill(kSwapToAxeSkill, 1, "EX5EquipSlotType_Weapon_2"), kPosition,
