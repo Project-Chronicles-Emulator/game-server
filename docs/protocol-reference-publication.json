@@ -2,9 +2,9 @@
   "page_id": "page_d76bbd1a8b988191a91ed6afa2af9adf",
   "url": "https://chatgpt.com/space/page_d76bbd1a8b988191a91ed6afa2af9adf",
   "document": "docs/protocol-feature-reference.md",
-  "document_sha256": "a6f9a7165603270878bcf7a37ecd92201c3a7e0b64d33f88bb518fc9b05ef944",
-  "verified_at_utc": "2026-11-03T04:14:59Z",
-  "verification": "The root index and all eight child Pages were read. Complete ordered content matches the standalone game-server canonical reference after whitespace normalization: 3404 blocks and 538 catalog entries. Contributor/extraction portability evidence was added without changing runtime contracts, packet labels or feature status. Static CMS extraction, descriptor recovery and restricted catalog export are distinguished from full-world generation and original-client gameplay.",
+  "document_sha256": "0fbefed8582d63329519ad84ffabab26914fc6ee8558401c77885e89f2f8f045",
+  "verified_at_utc": "2026-11-03T13:43:28Z",
+  "verification": "Root links and all eight complete child Pages read back. Their 4724 nonblank lines match the complete canonical document in order after whitespace normalization. Fresh split-service local tutorial entry, visible health/stamina and bounded weapon actions are recorded separately from synthetic tests and unverified full gameplay. Runtime feature labels and packet overrides are unchanged.",
   "sharing": "Private; existing account access only.",
   "pending_source_reviews": [],
   "parts": [
@@ -12,29 +12,29 @@
       "page_id": "page_45b328e86fb08191bcb9d5ba91e7fb5c",
       "url": "https://chatgpt.com/space/page_45b328e86fb08191bcb9d5ba91e7fb5c",
       "title": "Project Chronicles overview captures and accounts",
-      "first_heading": "# ArcheAge Chronicles Demo \u2014 protocol and feature coverage",
-      "verified_blocks": 449
+      "first_heading": "# ArcheAge Chronicles Demo — protocol and feature coverage",
+      "verified_blocks": 450
     },
     {
       "page_id": "page_06f2a1f1076c81918681ebaceb416271",
       "url": "https://chatgpt.com/space/page_06f2a1f1076c81918681ebaceb416271",
       "title": "Project Chronicles sessions movement and travel",
       "first_heading": "## World connection, clock and session lifecycle",
-      "verified_blocks": 513
+      "verified_blocks": 514
     },
     {
       "page_id": "page_664fea9a01fc8191bdd575e7d833e8c5",
       "url": "https://chatgpt.com/space/page_664fea9a01fc8191bdd575e7d833e8c5",
       "title": "Project Chronicles world population and combat",
       "first_heading": "## World population, visibility and NPC AI",
-      "verified_blocks": 352
+      "verified_blocks": 353
     },
     {
       "page_id": "page_fb3e2e5b83c4819185e8a0e547dacff5",
       "url": "https://chatgpt.com/space/page_fb3e2e5b83c4819185e8a0e547dacff5",
       "title": "Project Chronicles progression quests and interactions",
       "first_heading": "## Projectiles and skill objects",
-      "verified_blocks": 476
+      "verified_blocks": 477
     },
     {
       "page_id": "page_ca89d69f54708191b64d07d96ea2078e",

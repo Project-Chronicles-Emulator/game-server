@@ -25,7 +25,9 @@ schema. That inactive schema is not part of normal installation; the public main
 installer retains schema 44. No production database or running production service
 was modified by these checks.
 
-These are synthetic unit, database and transport results. Original-client gameplay
-acceptance after this service split has not been performed. Existing historical
+These are synthetic unit, database and transport results. A later bounded
+original-client local trial reached the tutorial with visible stats
+and weapon actions; see [fresh installation validation](fresh-install-validation-20261103.md).
+The earlier checks above do not themselves establish client acceptance. Existing historical
 client acceptance records describe earlier builds and must not be treated as a
 new client trial.

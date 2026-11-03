@@ -27,9 +27,16 @@ schema; follow the setup guide rather than installing a second database for game
 
 ## 2. Game
 
+Before testing gameplay, complete the [data pipeline](game-data.md). The catalog
+provides character health, stamina and starting skills; the matching tutorial
+profile provides tutorial/combat behavior. Starting without them is a transport
+check only: a map can load with empty stats and unusable skills.
+
 ```powershell
 .\chronicles-server.exe --config config/services/game.example.json `
-    --protocol-dir protocol --agent-engine-data agent-engine
+    --protocol-dir protocol --agent-engine-data agent-engine `
+    --client-data-dir data/generated/catalog `
+    --world-bootstrap-diagnostic true --world-handshake-delay-ms 2000
 ```
 
 Always supply `--protocol-dir protocol` when using the binary package. It overrides
@@ -44,7 +51,28 @@ inputs: follow the [game data pipeline](https://github.com/Project-Chronicles-Em
 and add `--client-data-dir PATH/TO/catalog` as appropriate. A binary package does not
 provide the game's content or populate every map.
 
+The two diagnostic options select the researched local tutorial path. The delay
+lets the guarded local world-entry helper observe the pending TLS connection.
+Keep login, game HTTP and world TLS ports consistent when using custom ports.
+
 ## 3. Launcher
+
+Use launcher preview.2 or newer for unsigned local service profiles. Prepare its
+local bootstrap inputs from your own extraction and the world's **public** PEM
+certificate (never its private key):
+
+```powershell
+python tools/prepare_local_client.py `
+    --extraction C:/ProjectChronicles/private/client-extraction `
+    --certificate C:/ProjectChronicles/game-server/out/certificates/world.pem `
+    --client D:/Games/Chronicles
+```
+
+The extraction must contain `raw/X5/Config/BinaryConfig.ini` and
+`DefaultX5Game.ini` from the researched build. Keep the generated `runtime/`
+private. The command does not modify the client. For an already prepared compatible
+private client, add `--client-mode private_copy`; this does not prepare or patch
+a stock client. Unknown builds fail the existing identity checks.
 
 ```powershell
 .\chronicles-launcher.exe
@@ -53,6 +81,10 @@ provide the game's content or populate every map.
 The package contains a local `launcher-config.json`. Configure your own client path,
 keep automatic service startup off for the split services and connect to login on
 `http://127.0.0.1:8080`. Keep existing private settings when updating a package.
+Sign in, start the client, select the realm and character using the displayed
+keyboard shortcuts. Confirm health/stamina and a successful weapon action after
+world entry. Numbered item shortcuts may be empty until items are assigned.
+A loaded backdrop alone is not a successful gameplay test.
 
 ## 4. Admin
 

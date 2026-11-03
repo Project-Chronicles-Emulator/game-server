@@ -11,6 +11,11 @@ There are **two different operations**:
 PAKs or discover an archive key. The portable archive reader and catalog builders
 for the first operation are included under `tools/asset-extractor/`.
 
+Binary-package users: game-server preview.2 includes the runtime generators.
+Use the separate [asset extractor release](https://github.com/Project-Chronicles-Emulator/asset-extractor/releases)
+for archive extraction, then run stages D onward from the game package directory.
+Stage A below applies to a source checkout. Keep both packages in separate folders.
+
 ## What you need
 
 - The researched client build, its `X5/Content/Paks` directory and enough disk space
@@ -166,6 +171,13 @@ development path, append the flag explicitly after preparing the matching profil
 Authored NPC population also requires the appropriate `--npc-placements FILE` input.
 The catalog flag alone does not populate every map or enable every gameplay system.
 Use [feature progress](../progress.md) and owning loader/source to identify prerequisites.
+
+For the local tutorial trial, also use `--world-handshake-delay-ms 2000` with the
+guarded launcher helper. Verify the startup log reports the catalog and tutorial
+definitions loaded. Missing catalog data causes absent health/stamina snapshots;
+missing tutorial/combat data leaves skills unavailable even if the map renders.
+Restart the isolated game service and reconnect after supplying these inputs.
+Do not substitute invented stat values for a missing catalog.
 
 ## Verification and boundaries
 

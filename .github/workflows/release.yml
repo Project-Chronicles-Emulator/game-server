@@ -6,7 +6,7 @@ on:
       tag:
         description: New preview release tag
         required: true
-        default: v0.1.0-preview.1
+        default: v0.1.0-preview.2
         type: string
 
 permissions:
@@ -55,6 +55,14 @@ jobs:
           if ($LASTEXITCODE -ne 0) { throw 'Executable startup failed' }
       - name: Package redistributable files
         run: ./tools/package_release.ps1
+      - name: Verify packaged data generators
+        run: |
+          python out/release/game-server-win64/tools/export_client_data.py --help
+          if ($LASTEXITCODE -ne 0) { throw 'Packaged catalog exporter failed' }
+          python out/release/game-server-win64/tools/build_tutorial_data.py --help
+          if ($LASTEXITCODE -ne 0) { throw 'Packaged tutorial generator failed' }
+          python out/release/game-server-win64/tools/build_combat_data.py --help
+          if ($LASTEXITCODE -ne 0) { throw 'Packaged combat generator failed' }
       - uses: actions/upload-artifact@v4
         with:
           name: game-server-win64

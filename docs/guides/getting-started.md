@@ -182,6 +182,22 @@ After [preparing data](game-data.md), add
 `--client-data-dir data/generated/catalog`. Generated feature profiles have their
 own loader conditions; see that guide before expecting a populated world.
 
+For actual local tutorial gameplay, prepare the complete data first, then use:
+
+```powershell
+.\out\build\windows\bin\Release\chronicles-server.exe `
+    --config config/services/game.example.json `
+    --admin-token-file (Join-Path $privateRoot 'admin-token.key') `
+    --client-data-dir data/generated/catalog `
+    --world-bootstrap-diagnostic true --world-handshake-delay-ms 2000
+```
+
+The catalog supplies health, stamina and starting skills; its sibling
+`tutorial/definitions.json` supplies the
+tutorial and combat profile. Without them, entering a map can still leave the
+character with empty bars and unavailable skills. Confirm the startup log reports
+both `Client catalog loaded` and `Tutorial definitions loaded`.
+
 From another terminal:
 
 ```powershell
@@ -211,6 +227,9 @@ if (-not (Test-Path -LiteralPath $profile)) {
 ```
 
 Configure/select the launcher's **Local** server at `http://127.0.0.1:8080`.
+Prepare its private bootstrap inputs with `tools/prepare_local_client.py` from the
+launcher repository/package; see the [package guide](preview-packages.md#3-launcher)
+for the matching extracted config files and public certificate.
 Create a player account and sign in there. Choose your compatible local game
 folder; there is no client download included with this checkout. Keep launcher
 automatic local-server startup disabled: the services above are started separately.
