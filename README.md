@@ -15,6 +15,11 @@
 
 ---
 
+## Development Discord
+
+Join the [Project Chronicles development Discord](https://discord.gg/p78x39XTtf)
+to discuss emulator development, reverse engineering, bug reports and contributions.
+
 ## A world under construction
 
 Project Chronicles separates authentication, world simulation and desktop tools into
