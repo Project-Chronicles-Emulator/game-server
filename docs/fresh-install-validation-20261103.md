@@ -81,3 +81,11 @@ loaded map without attaching shared monsters. Its regression fails before the re
 and passes afterward; the combat executable reports 355 passed, 19 skipped, zero failed.
 The local client and user confirmed the bed/cutscene route reached the overworld; this
 does not establish acceptance of every combat action or NPC interaction there.
+
+## Normal progression default
+
+Automatic graduation boosts are disabled by default and explicitly off in the example game
+configuration. Tutorial completion no longer advertises a reconnect for maximum level,
+equipment, currency or completed quests. Character/progression checks: 71 passed, nine
+existing environment-gated skips, zero failed. Existing boosted characters retain their
+stored state. This option change does not establish new original-client gameplay acceptance.

@@ -1,7 +1,10 @@
 # Graduation test kit
 
-While the realm is being tested, a character that enters the overworld below the level cap gets a
-test kit so it can try every system at once. This is emulator policy, not official behavior.
+Normal progression is the default. Completing the tutorial does not automatically raise a
+character's level, complete other quests, or grant equipment, currency or build points.
+
+The optional test kit below is available only when an operator explicitly enables it.
+This is emulator testing policy, not official behavior.
 
 ## What a character receives
 
@@ -31,11 +34,13 @@ leaving 176,000 weight on the character.
   to character selection and enter again. The session cannot show the kit, because the grant runs
   before the entry snapshots.
 
-## Switching it off
+## Enabling it for a disposable test realm
 
-The server grants the kit by default. Start `chronicles-server` with `--graduation-grant off`, or
-set `graduation_grant` to `"off"` in the server configuration file, to stop granting it. Characters
-that already received the kit keep it.
+The server does not grant the kit by default. Only `--graduation-grant on` or
+`graduation_grant: "on"` in the server configuration enables it. The supplied game
+configuration explicitly sets it to `"off"`. With it disabled, the tutorial also sends no
+message telling players to reconnect for a test kit. Existing characters that already
+received a grant keep their stored state; disabling the policy does not undo earned progress.
 
 ## Player car command
 

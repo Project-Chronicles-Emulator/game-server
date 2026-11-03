@@ -1327,9 +1327,8 @@ struct ServerOptions {
   // guessed details (see docs/monster-loot.md).
   bool loot_custom_rules_enabled{true};
   std::string loot_rules_file;
-  // Test kit for characters entering the overworld below the level cap (docs/graduation-grant.md).
-  // "--graduation-grant off" turns it off.
-  bool graduation_grant_enabled{true};
+  // Normal progression is the default. The test kit requires an explicit operator opt-in.
+  bool graduation_grant_enabled{false};
   bool native_identity_accounts{};
   bool native_require_launch_grant{kDefaultSeparateLogin};
   // Operator console (/admin/v1). Disabled unless a token file is supplied.

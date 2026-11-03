@@ -2,9 +2,9 @@
   "page_id": "page_d76bbd1a8b988191a91ed6afa2af9adf",
   "url": "https://chatgpt.com/space/page_d76bbd1a8b988191a91ed6afa2af9adf",
   "document": "docs/protocol-feature-reference.md",
-  "document_sha256": "7e4a714442ed717906e9c821c69905a5c7c46fb31cc12db6a088311f811e05ed",
-  "verified_at_utc": "2026-11-03T15:05:03Z",
-  "verification": "Root links and all eight complete child Pages read back. Their 4726 nonblank lines match the complete canonical document in order after whitespace normalization. The full-profile audit records generation and runtime loader acceptance separately from observed tutorial completion and unverified gameplay mechanics. Feature status labels remain unchanged; map-load and skill notes describe the bounded followup tutorial fix.",
+  "document_sha256": "102de53da9516c4d4305bf3d797482e08617cd123e89ace8b9990848b1a4c43a",
+  "verified_at_utc": "2026-11-03T15:19:52Z",
+  "verification": "All eight complete child Pages read back; their 4726 nonblank lines match the complete canonical document in order after whitespace normalization. Normal progression is the default; the graduation kit requires explicit operator opt-in. Verification remains separated from original-client acceptance. Existing root index links and part identities are unchanged.",
   "sharing": "Private; existing account access only.",
   "pending_source_reviews": [],
   "parts": [

@@ -4,6 +4,7 @@
   "public_address": "http://127.0.0.1:8082",
   "auth_authority": "http://127.0.0.1:8090",
   "storage": "postgres",
+  "graduation_grant": "off",
   "native_client": "local",
   "native_require_launch_grant": true,
   "world_port": 8081,
