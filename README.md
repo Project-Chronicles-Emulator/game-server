@@ -1,59 +1,115 @@
-# Project Chronicles Game Server
+<p align="center"><img src="docs/assets/project-chronicles-hero.png" alt="Project Chronicles — a fantasy harbor at dawn" width="100%"></p>
 
-C++20 MMORPG emulator game service. Owns characters, world state, simulation,
-world TLS connections and the operator API. Authentication and admission tickets
-belong to the separate [login-server](https://github.com/Project-Chronicles-Emulator/login-server).
-The default build requires that service and never silently creates local sessions.
+<h1 align="center">Project Chronicles</h1>
 
-## Build and installation
+<p align="center">A community-built C++20 MMORPG emulator for the researched ArcheAge Chronicles demo.<br>Understand the game. Build the world. Make the behavior reproducible.</p>
 
-Use Visual Studio 2026 C++ tools, CMake 3.25+, Ninja, Python and the pinned vcpkg
-manifest. Every checkout contains its source dependencies. Follow the existing
-[build and data guide](docs/development-build-guide.md), building chronicles-server
-and chronicles-roster-tests. Run relevant authentication tests through CTest.
+<p align="center">
+  <img alt="Active development" src="https://img.shields.io/badge/status-active_development-c7944b">
+  <img alt="C++20 runtime" src="https://img.shields.io/badge/runtime-C%2B%2B20-245b78">
+  <img alt="PostgreSQL 16" src="https://img.shields.io/badge/storage-PostgreSQL_16-416581">
+  <img alt="Windows x64 setup" src="https://img.shields.io/badge/setup-Windows_x64-405366">
+</p>
 
-```powershell
-. .\tools\dev_shell.ps1
-cmake --preset windows -DCMAKE_TOOLCHAIN_FILE=C:/path/to/vcpkg/scripts/buildsystems/vcpkg.cmake
-cmake --build --preset release --target chronicles-server chronicles-roster-tests
-ctest --preset release -R "AuthAuthority|SplitAuthTest|NativeAuth|AuthService|LauncherRoster"
+<p align="center"><a href="docs/guides/getting-started.md"><b>Get running</b></a> · <a href="docs/progress.md"><b>Feature progress</b></a> · <a href="docs/guides/game-data.md"><b>Extract game data</b></a> · <a href="CONTRIBUTING.md"><b>Contribute</b></a> · <a href="docs/README.md"><b>Documentation</b></a></p>
+
+---
+
+## A world under construction
+
+Project Chronicles separates authentication, world simulation and desktop tools into
+four independently built projects. This repository is the game server and the main
+entry point for project documentation.
+
+The emulator contains stateful gameplay systems, persistent characters, native
+protocol adapters and automated checks. It is still an **experimental, build-specific
+emulator**. A packet handler or passing synthetic test does not mean the corresponding
+game system is complete. The [progress guide](docs/progress.md) makes those distinctions visible.
+
+## Four projects, one development environment
+
+| Project | Owns | Local endpoint | Start here |
+| :--- | :--- | :--- | :--- |
+| **[Login server](https://github.com/Project-Chronicles-Emulator/login-server)** | Accounts, sessions, launcher grants and world admission | HTTP `8080`; private `8090` | [Login guide](docs/guides/components.md#login-server) |
+| **[Game server](https://github.com/Project-Chronicles-Emulator/game-server)** | Characters, gameplay, world simulation and operator API | HTTP `8082`; world TLS `8081` | [Game guide](docs/guides/components.md#game-server) |
+| **[Launcher](https://github.com/Project-Chronicles-Emulator/launcher)** | Player sign-in, game selection, startup and signed distribution | Connects to login | [Launcher guide](docs/guides/components.md#launcher) |
+| **[Admin](https://github.com/Project-Chronicles-Emulator/admin)** | Operator desktop console and server management | Connects to game | [Admin guide](docs/guides/components.md#admin) |
+
+```mermaid
+flowchart LR
+    Player[Player] --> Launcher[Launcher]
+    Launcher -->|HTTP 8080| Login[Login server]
+    Client[Game client] -->|Auth HTTP / WebSocket| Login
+    Client -->|Lobby 8082 / World TLS 8081| Game[Game server]
+    Admin[Admin console] -->|Operator API 8082| Game
+    Game -->|Private loopback authority 8090| Login
+    Login --> Database[(PostgreSQL 16)]
+    Game --> Database
 ```
 
-Install PostgreSQL 16 and run tools/install_database.ps1 once. The complete schema
-is migrations/001_accounts_characters.sql; a fresh installation needs no update
-sequence. Both services must use that same database and a shared private service
-key file. Set CHRONICLES_DATABASE_URL and CHRONICLES_AUTH_SERVICE_KEY_FILE privately
-in both environments. Follow the login repository's SETUP.md for key configuration.
+The current split supports **one login and one game process on the same host and
+database**. Each checkout includes its own source dependencies; no sibling source
+folder is required to compile a component.
 
-Supply a world TLS certificate/key at the paths in config/services/game.example.json,
-or override those paths in an ignored local copy. Start login first, then run
-chronicles-server.exe --config config/services/game.example.json from the repository
-root. The executable is in out/build/windows/bin/Release/.
+## Your first successful run
 
-Defaults: game/operator HTTP 127.0.0.1:8082, world TLS 127.0.0.1:8081, private login
-127.0.0.1:8090. The admin connects to game; the launcher connects to login on 8080.
-The services verify database identity and hold distinct exclusive leases, permitting
-one login and one game process per database. Keep keys, passwords, certificates,
-client binaries and captures out of public files. Remote HTTP requires TLS.
-The operator API remains disabled until a private `--admin-token-file` is supplied.
-Configure that token and the game HTTP address in the admin application.
+**Prepare tools → build → install the database → configure private keys and TLS →
+start login → start game → open launcher and admin.**
 
-## Validation and implementation limits
+```powershell
+git clone https://github.com/Project-Chronicles-Emulator/game-server.git
+git clone https://github.com/Project-Chronicles-Emulator/login-server.git
+git clone https://github.com/Project-Chronicles-Emulator/launcher.git
+git clone https://github.com/Project-Chronicles-Emulator/admin.git
+```
 
-The split is checked with isolated PostgreSQL and two processes, including character
-creation/selection, both TLS admission credentials, replay rejection and login
-outage/restart. These are synthetic checks, not original-client gameplay acceptance.
-The remote admission commit is the cross-service authorization point; final socket
-admission uses its locally prepared result. Independent databases, multi-host private
-transport and login-session replication are not implemented.
+The **[complete local setup](docs/guides/getting-started.md)** includes prerequisites,
+copyable build commands, database installation, secret configuration, certificate
+creation, startup order and health checks. Client files and credentials are supplied locally.
 
-This emulator remains under development. Recovered protocol inputs describe one
-researched client build. Local extracted game data is required for catalog-backed
-features; proprietary client binaries and dumps are not distributed here.
-Read [feature coverage](docs/protocol-feature-reference.md), [validation](VALIDATION.md)
-and [native protocol notes](NATIVE_PROTOCOL.md) before assuming compatibility.
+> **Choose the right milestone.** Service smoke tests validate login, sessions and
+> transport before gameplay data is prepared. Playing the researched client also
+> requires a compatible local client, generated data and the applicable client setup.
+> The service split has synthetic acceptance; original-client gameplay after that
+> split has not yet been revalidated.
 
-Related repositories: [launcher](https://github.com/Project-Chronicles-Emulator/launcher),
-[admin](https://github.com/Project-Chronicles-Emulator/admin).
+## Where development stands
 
-See [service split validation](docs/service-split-validation.md) for completed checks and limits.
+| Area | Current foundation | Remaining work |
+| :--- | :--- | :--- |
+| Login & characters | Persistent accounts, sessions, grants and owned selection | General platform authentication and client acceptance after the split |
+| Movement & world | Checkpoints, nearby presence and bounded tutorial travel | General travel, navigation and broader world authority |
+| Combat & skills | Server action timing, costs, cooldowns and supported damage/effects | Full defence/effect semantics, broader combat and client acceptance |
+| Quests & interactions | Supported stateful objectives, guarded rewards and tutorial interactions | Complete content coverage and broader playthroughs |
+| Gathering & crafting | Supported source/claim flows and catalog-driven processing | Remaining recipes, source policies and full parity |
+| Housing | Land/channel/object foundations and supported owned-state flows | Remaining lifecycle behavior and client acceptance |
+| Economy & social | Inventory, loot, trade, marketplace and social foundations | See each feature's exact scope and evidence |
+
+**[Open the full feature matrix →](docs/progress.md)**
+
+The canonical inventory tracks **538 message/route entries**. These are recovered
+contracts, not a completion percentage. Feature status, packet status, static research,
+captures, synthetic checks and client observations are recorded separately in the
+[protocol reference](docs/protocol-feature-reference.md).
+
+## Build something useful
+
+| If you want to… | Read this |
+| :--- | :--- |
+| Run all four components | [Getting started](docs/guides/getting-started.md) |
+| Understand ownership and configuration | [Component guide](docs/guides/components.md) |
+| Extract archives and generate server data | [Game data pipeline](docs/guides/game-data.md) |
+| Find the code responsible for a behavior | [Architecture and source map](docs/guides/architecture.md) |
+| Implement a feature or fix a bug | [Contribution workflow](docs/guides/feature-workflow.md) |
+| Choose checks and report results | [Testing and evidence](docs/guides/testing.md) |
+| Diagnose a failed setup | [Troubleshooting](docs/guides/troubleshooting.md) |
+
+Start with [CONTRIBUTING.md](CONTRIBUTING.md). A useful contribution includes a clear
+behavioral contract, a focused implementation and evidence another contributor can
+reproduce. Documentation, extraction fixes and scoped bug reports are welcome too.
+
+---
+
+<p align="center"><a href="https://github.com/Project-Chronicles-Emulator">Organization</a> · <a href="https://github.com/Project-Chronicles-Emulator/game-server/issues">Issues</a> · <a href="docs/service-split-validation.md">Validation record</a></p>
+
+<p align="center"><sub>Independent community project. Not affiliated with or endorsed by the game's creators or publishers.</sub></p>

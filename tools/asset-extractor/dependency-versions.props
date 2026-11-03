@@ -1,0 +1,10 @@
+<Project>
+  <Import Project="$(MSBuildThisFileDirectory)../../out/dependencies/CUE4Parse/Directory.Packages.props" />
+  <PropertyGroup>
+    <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- Preserve the researched parser revision while applying the patched memory package. -->
+    <PackageVersion Include="Microsoft.Bcl.Memory" Version="9.0.14" />
+  </ItemGroup>
+</Project>

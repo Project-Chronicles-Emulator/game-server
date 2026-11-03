@@ -2,9 +2,9 @@
   "page_id": "page_d76bbd1a8b988191a91ed6afa2af9adf",
   "url": "https://chatgpt.com/space/page_d76bbd1a8b988191a91ed6afa2af9adf",
   "document": "docs/protocol-feature-reference.md",
-  "document_sha256": "afcf4a5512eb68f4b639cebc7fdc57a4b3b014e985e3039f940e37ca79ca3415",
-  "verified_at_utc": "2026-11-03T03:53:11Z",
-  "verification": "All eight child Pages and the root index were read. Ordered whitespace-normalized content matches the standalone game-server reference: 3394 blocks and 538 catalog entries. Autonomous login/game ownership, private admission, synthetic PostgreSQL/TLS checks and remaining original-client acceptance limits are recorded. References to retired combined startup/packaging scripts were removed; frontend/login pointers target their independent repositories.",
+  "document_sha256": "a6f9a7165603270878bcf7a37ecd92201c3a7e0b64d33f88bb518fc9b05ef944",
+  "verified_at_utc": "2026-11-03T04:14:59Z",
+  "verification": "The root index and all eight child Pages were read. Complete ordered content matches the standalone game-server canonical reference after whitespace normalization: 3404 blocks and 538 catalog entries. Contributor/extraction portability evidence was added without changing runtime contracts, packet labels or feature status. Static CMS extraction, descriptor recovery and restricted catalog export are distinguished from full-world generation and original-client gameplay.",
   "sharing": "Private; existing account access only.",
   "pending_source_reviews": [],
   "parts": [
@@ -27,7 +27,7 @@
       "url": "https://chatgpt.com/space/page_664fea9a01fc8191bdd575e7d833e8c5",
       "title": "Project Chronicles world population and combat",
       "first_heading": "## World population, visibility and NPC AI",
-      "verified_blocks": 342
+      "verified_blocks": 352
     },
     {
       "page_id": "page_fb3e2e5b83c4819185e8a0e547dacff5",

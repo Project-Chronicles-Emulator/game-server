@@ -284,6 +284,11 @@ this checkout is versioned here; do not add sibling-source build dependencies.
 Use C++20 without compiler extensions, CMake, the pinned vcpkg manifest, Boost.Asio,
 Boost.Beast, OpenSSL, Protobuf, nlohmann/json, libpqxx/PostgreSQL, spdlog and GoogleTest.
 Use Python for extraction/verification and PowerShell for Windows development helpers.
+Offline archive reading reuses CUE4Parse through the isolated .NET 10 adapter under
+`tools/asset-extractor/`, because that existing parser supports the researched archive
+format. Python owns descriptor/catalog conversion, runtime export and verification.
+Build that optional adapter with `tools/build_asset_extractor.ps1`; its upstream source
+and dependency versions are pinned. It is independent of the C++ runtime build.
 Follow README.md and CMakePresets.json, reuse the build/cache and run relevant checks.
 Keep credentials, certificates, client binaries, raw captures and build output ignored.
 
