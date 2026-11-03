@@ -51,6 +51,18 @@ The current split supports **one login and one game process on the same host and
 database**. Each checkout includes its own source dependencies; no sibling source
 folder is required to compile a component.
 
+## Generate your own research inputs
+
+These separate repositories publish tooling source only:
+
+| Tool | Purpose |
+| :--- | :--- |
+| [**SDK generator**](https://github.com/Project-Chronicles-Emulator/sdk-generator) | Generate and validate reflection/C++/Lua SDK output from your compatible local client |
+| [**Asset extractor**](https://github.com/Project-Chronicles-Emulator/asset-extractor) | Extract local archives, recover descriptors and build verified catalogs |
+
+Client files, generated game SDKs, extracted assets, captures and keys are supplied
+or produced locally and are not distributed in those repositories.
+
 ## Your first successful run
 
 **Prepare tools → build → install the database → configure private keys and TLS →
